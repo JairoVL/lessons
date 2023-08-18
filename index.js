@@ -333,3 +333,36 @@ ejercicioTres(2, 16);
 //     numeroItem.textContent = numeros[i];
 //     numerosLista.appendChild(numeroItem);
 // }
+
+
+let integrantes = [
+    "Jairo Villaba",
+    "Nicolas Farina",
+    "Irina Keiner",
+    "Lucas Galvan",
+    "Lucas Ferraro"
+]; 
+// creo la lista con todos los integrantes que hay hasta ahora
+// declaro todas las variables con el ID que tengo en el HTML del formulario
+let formulario = document.getElementById("formulario");
+let nombreInput = document.getElementById("nombre");
+let agregarBoton = document.getElementById("agregar");
+let listaIntegrantes = document.getElementById("lista-integrantes");
+
+agregarBoton.addEventListener("click", function () {
+    let nuevoIntegrante = nombreInput.value;
+    if (nuevoIntegrante !== "") {
+        integrantes.push(nuevoIntegrante); // si el valor no esta vacio (!==) se agrega integrante al array con el metodo push
+        actualizarListaIntegrantes();
+        nombreInput.value = ""; // Limpiar el campo de entrada
+    }
+});
+
+function actualizarListaIntegrantes() {
+    listaIntegrantes.innerHTML = ""; // Limpiar la lista actual, el contenido lista de integrante lo le como lista vacia
+    for (let i = 0; i < integrantes.length; i++) {
+        let integranteItem = document.createElement("li");
+        integranteItem.textContent = integrantes[i];
+        listaIntegrantes.appendChild(integranteItem);
+    }
+}

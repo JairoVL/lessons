@@ -9,39 +9,17 @@
 </head>
 
 <body>
-    <script>
-        let integrantes = [
-            "Jairo Villaba",
-            "Nicolas Farina",
-            "Irina Keiner",
-            "Lucas Galvan",
-            "Lucas Ferraro"
-        ]; 
-        // creo la lista con todos los integrantes que hay hasta ahora
-        // declaro todas las variables con el ID que tengo en el HTML del formulario
-        let formulario = document.getElementById("formulario");
-        let nombreInput = document.getElementById("nombre");
-        let agregarBoton = document.getElementById("agregar");
-        let listaIntegrantes = document.getElementById("lista-integrantes");
 
-        agregarBoton.addEventListener("click", function () {
-            let nuevoIntegrante = nombreInput.value;
-            if (nuevoIntegrante !== "") {
-                integrantes.push(nuevoIntegrante); // si el valor no esta vacio (!==) se agrega integrante al array con el metodo push
-                actualizarListaIntegrantes();
-                nombreInput.value = ""; // Limpiar el campo de entrada
-            }
-        });
+    <h1>Grupo Berenjena Soul Power</h1>
+    <form id="formulario">
+        <input type="text" id="nombre" placeholder="Nombre del nuevo integrante">
+        <button type="button" id="agregar">Sumarme al grupo</button>
+    </form>
+    <ul id="lista-integrantes"></ul>
 
-        function actualizarListaIntegrantes() {
-            listaIntegrantes.innerHTML = ""; // Limpiar la lista actual
-            for (let i = 0; i < integrantes.length; i++) {
-                let integranteItem = document.createElement("li");
-                integranteItem.textContent = integrantes[i];
-                listaIntegrantes.appendChild(integranteItem);
-            }
-        }
-    </script>
+
+
+    
 
 <!-- 
     <h1>Grupos Redjar</h1>
