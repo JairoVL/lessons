@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let integrantes = [
+            "Jairo Villaba",
+            "Nicolas Farina",
+            "Irina Keiner",
+            "Lucas Galvan",
+            "Lucas Ferraro"
+        ]; 
+        // creo la lista con todos los integrantes que hay hasta ahora
+        // declaro todas las variables con el ID que tengo en el HTML del formulario
+        let formulario = document.getElementById("formulario");
+        let nombreInput = document.getElementById("nombre");
+        let agregarBoton = document.getElementById("agregar");
+        let listaIntegrantes = document.getElementById("lista-integrantes");
+
+        agregarBoton.addEventListener("click", function () {
+            let nuevoIntegrante = nombreInput.value;
+            if (nuevoIntegrante !== "") {
+                integrantes.push(nuevoIntegrante); // si el valor no esta vacio (!==) se agrega integrante al array con el metodo push
+                actualizarListaIntegrantes();
+                nombreInput.value = ""; // Limpiar el campo de entrada
+            }
+        });
+
+        function actualizarListaIntegrantes() {
+            listaIntegrantes.innerHTML = ""; // Limpiar la lista actual
+            for (let i = 0; i < integrantes.length; i++) {
+                let integranteItem = document.createElement("li");
+                integranteItem.textContent = integrantes[i];
+                listaIntegrantes.appendChild(integranteItem);
+            }
+        }
+    </script>
+
+<!-- 
+    <h1>Grupos Redjar</h1>
+    <div class="content">
+        <ul id="lista"></ul>
+       
+
+    </div> -->
+
+<!-- 
+    <div id="div-formulario">
+        <h1>¿quienes son tus compañeros de grupo?</h1>
+
+        <form action="#" id="formulario">
+            <input type="text" id="nombre" placeholder="Ingresa un nombre de grupo">
+            <button type="submit" id="btnAgregar">Buscar</button>
+        </form>
+    </div>
+    <h2 id="grupo"></h2>
+    <ul id="lista"></ul> -->
+
+    <!-- <div class="content">
+        <h1>Grupos Redjar</h1>
+        <div id="array1"></div>
+        <div id="array2"></div>
+        <div id="array3"></div>
+        <div id="array4"></div>
+    </div> -->
+
+    <!-- <div class="div-titulo">
+        <h1>Grupos Rejar</h1>
+    </div>
+    
+    <div class="contenedor">
+
+        <div id="div-formulario">
+            <h2> averigua a que grupo perteneces</h2>
+
+            <form action="#" id="formulario">
+                <input type="text" id="nombre" placeholder="Ingresa un nombre">
+                <button type="submit" id="btnAgregar">Agregar</button>
+            </form>
+        </div>
+
+        <div class="div-listado">
+            <h2>Listado Asociados</h2>
+            <div class="div-empleados">
+                
+            </div>
+        </div>
+
+    </div> -->
+
+
+
+
+    <script src="index.js"></script>
+</body>
+
+</html>
