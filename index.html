@@ -1,80 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Grupos Redjar</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body>
-
-    <h1>Grupo Berenjena Soul Power</h1>
-    <form id="formulario">
-        <input type="text" id="nombre" placeholder="Nombre del nuevo integrante">
-        <button type="button" id="agregar">Sumarme al grupo</button>
-    </form>
-    <ul id="lista-integrantes"></ul>
-
-
-
-    
-
-<!-- 
-    <h1>Grupos Redjar</h1>
-    <div class="content">
-        <ul id="lista"></ul>
-       
-
-    </div> -->
-
-<!-- 
-    <div id="div-formulario">
-        <h1>¿quienes son tus compañeros de grupo?</h1>
-
-        <form action="#" id="formulario">
-            <input type="text" id="nombre" placeholder="Ingresa un nombre de grupo">
-            <button type="submit" id="btnAgregar">Buscar</button>
-        </form>
-    </div>
-    <h2 id="grupo"></h2>
-    <ul id="lista"></ul> -->
-
-    <!-- <div class="content">
+    <div class="container">
         <h1>Grupos Redjar</h1>
-        <div id="array1"></div>
-        <div id="array2"></div>
-        <div id="array3"></div>
-        <div id="array4"></div>
-    </div> -->
+        <form id="formulario">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" required>
+            <br>
+            <label for="Lider">Lider asignado</label>
+            <input type="text" id="Lider" required>
+            <br>
+            <button type="button" id="mostrarBtn">Mostrar Grupo</button>
+        </form>
 
-    <!-- <div class="div-titulo">
-        <h1>Grupos Rejar</h1>
+        <div id="cardContainer"></div>
     </div>
-    
-    <div class="contenedor">
-
-        <div id="div-formulario">
-            <h2> averigua a que grupo perteneces</h2>
-
-            <form action="#" id="formulario">
-                <input type="text" id="nombre" placeholder="Ingresa un nombre">
-                <button type="submit" id="btnAgregar">Agregar</button>
-            </form>
-        </div>
-
-        <div class="div-listado">
-            <h2>Listado Asociados</h2>
-            <div class="div-empleados">
-                
-            </div>
-        </div>
-
-    </div> -->
-
-
-
 
     <script src="index.js"></script>
 </body>
