@@ -63,25 +63,26 @@ function mostrarPersona() {
 }
 
 
-let nombreInput = document.getElementById("nombre");
 
-agregarBoton.addEventListener("click", function () {
+// let nombreInput = document.getElementById("nombre");
 
-    let nuevoIntegrante = nombreInput.value;
-    if (nuevoIntegrante !== "") {
-        integrantes.push(nuevoIntegrante); // si el valor no esta vacio (!==) se agrega integrante al array con el metodo push
-        nombreInput.value = ""; // Limpiar el campo de entrada
-    }
-});
+// agregarBoton.addEventListener("click", function () {
 
-function actualizarListaIntegrantes() {
-    listaIntegrantes.innerHTML = ""; // Limpiar la lista actual, el contenido lista de integrante lo le como lista vacia
-    for (let i = 0; i < integrantes.length; i++) {
-        let integranteItem = document.createElement("li");
-        integranteItem.textContent = integrantes[i];
-        listaIntegrantes.appendChild(integranteItem);
-    }
-}
+//     let nuevoIntegrante = nombreInput.value;
+//     if (nuevoIntegrante !== "") {
+//         integrantes.push(nuevoIntegrante); // si el valor no esta vacio (!==) se agrega integrante al array con el metodo push
+//         nombreInput.value = ""; // Limpiar el campo de entrada
+//     }
+// });
+
+// function actualizarListaIntegrantes() {
+//     listaIntegrantes.innerHTML = ""; // Limpiar la lista actual, el contenido lista de integrante lo le como lista vacia
+//     for (let i = 0; i < integrantes.length; i++) {
+//         let integranteItem = document.createElement("li");
+//         integranteItem.textContent = integrantes[i];
+//         listaIntegrantes.appendChild(integranteItem);
+//     }
+// }
 
 
 //  console.log(grupos[1].integrantes[4]) como creas lista de objetos y como llamarlos
