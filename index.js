@@ -1,6 +1,7 @@
 let grupos = [
     {
         nombre: "berenjena soul power",
+        liderGrupo: "Lucas Galvan",
         integrantes: [
             "Jairo Villaba",
             "Nicolas Farina",
@@ -11,44 +12,55 @@ let grupos = [
     },
     {
         nombre: "panda ranger",
+        liderGrupo: "Rafael Casco",
         integrantes: [
             "Franco Luna",
-            "Sebastian Guimenez",
+            "Sebastian Gimenez",
             "Rafael Casco",
-            "Sofia Errecalde",
+            "Emanuel Reinoso",
+            "Cian Vergara",
             "Agustin Belgrano"
         ],
     },
+
+
 ];
 
 
 
-const listaCompleta = grupos.flatMap(grupo => grupo.integrantes);
+//flatMap para recorrer cada objeto en el array grupos y extraer los
+// arreglos de integrantes y 
+//hace que sea un solo array llamado lista completa
 
 const mostrarBtn = document.getElementById('mostrarBtn');
+
+//se hace referencia a el boton creado en HTML y con getelementId 
+//cuando se hace clic se ejecuta la funcion "mostrarpersona" 
 mostrarBtn.addEventListener('click', mostrarPersona);
 
 function mostrarPersona() {
     const LiderInput = document.getElementById('Lider').value;
-
-    const personaEncontrada = listaCompleta.find(persona => persona === LiderInput);
-
+    const GrupoEncontrado = grupos.find(grupo => grupo.liderGrupo === LiderInput);
     const cardContainer = document.getElementById('cardContainer');
     cardContainer.innerHTML = '';
+   //se ejecucta la funcion mostrar persona cuando se hace clic y llama al valor del elemento HTML(INPUT lIDER)
+   // declaramos una constaste "persona encontrada" para poner el resultado de la busqueda
+   // "lista completa" es todo el array que hicimos uno con el metodo flatmap cpn el 
+   // metodo find llama al string que cumpla con la condicion que es que el nombre sea igual al valor del ID Lider Input
+   // (persona => persona === LiderInput); se le dice al metodo find que tome un a "persona" que represente los elementos
+   // del arreglo "lista completa" y compara si "persona" es ==> liderInput si da todo Ok devuelve a "persona" en "persona encontrada"
+   
 
-    if (personaEncontrada) {
-        const grupoPersona = grupos.find(grupo =>
-            grupo.integrantes.includes(personaEncontrada)
-        );
+    if (GrupoEncontrado) { 
 
         const cardDiv = document.createElement('div');
         cardDiv.classList.add('card');
 
         const cardTitle = document.createElement('h3');
-        cardTitle.textContent = grupoPersona.nombre;
+        cardTitle.textContent = GrupoEncontrado.nombre;
 
         const cardContent = document.createElement('p');
-        cardContent.textContent = `Líder: ${personaEncontrada}, Integrantes: ${grupoPersona.integrantes.join(', ')}`;
+        cardContent.textContent = `Líder: ${GrupoEncontrado.liderGrupo}, Integrantes: ${GrupoEncontrado.integrantes.join(', ')}`;
 
         cardDiv.appendChild(cardTitle);
         cardDiv.appendChild(cardContent);
@@ -62,6 +74,45 @@ function mostrarPersona() {
     }
 }
 
+// formulario nuevo integrante
+
+document.addEventListener("DOMContentLoaded", function()) {
+    const leaderInput = document.getElementById("leader");
+    const grupoInput = document.getElementById("grupo");
+    const memberInput = document.getElementById("member");
+    const agregarMiembroButton = document.getElementById("agregarMiembro");
+    const memberList = document.getElementById("memberList");
+}
+  // Creao un array para almacenar los nombres de los integrantes. vacio
+    const members = [];
+
+   // Agregamos un evento al botón "Crear nuevo grupo"
+    agregarMiembroButton.addEventListener("click", function() {
+        // Obtener el nombre del integrante y verificar si no está en blanco
+      const memberName = memberInput.value.trim(); // trim verifica que el nombre no esté en blanco
+      if (memberName) {
+        members.push(memberName);
+        // Agregar el nombre del integrante al array
+        memberInput.value = "";
+        // Actualizar la lista de integrantes en el DOM
+        updateMemberList();
+      }
+    });
+
+  // Funciones JavaScript para manejar los eventos de los botones
+  const gruposBtn = document.getElementById("gruposBtn");
+  const crearBtn = document.getElementById("crearBtn");
+
+  gruposBtn.addEventListener("click", function() {
+      // Desplazamiento suave a la sección "Grupos Redjar"
+      window.location.href = "#formulario";
+  });
+
+  crearBtn.addEventListener("click", function() {
+      // Desplazamiento suave a la sección "Crear nuevo grupo"
+      window.location.href = "#cardContainer";
+  });
+  //hacer que la lista vacia se agregue al array grupos 
 
 
 // let nombreInput = document.getElementById("nombre");
@@ -111,4 +162,4 @@ function mostrarPersona() {
 //         integranteItem.textContent = integrantes[i];
 //         listaIntegrantes.appendChild(integranteItem);
 //     }
-// }
+// 

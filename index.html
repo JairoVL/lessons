@@ -7,20 +7,49 @@
 </head>
 
 <body>
+    
+
+    <div class="card">
+            
+        <p>Bienvenido a administracion Redjar <br>
+        ¿que deseas hacer?</p>
+        <button id="gruposBtn">Encontrar tu grupo</button>
+        <button id="crearBtn">Crear Nuevo Grupo</button>
+    </div>
+
     <div class="container">
+       
+    
+        
+
         <h1>Grupos Redjar</h1>
         <form id="formulario">
             <label for="nombre">Nombre</label>
-            <input type="text" id="nombre" required>
+            <input type="text" id="nombre" required placeholder="ingresa tu nombre">
             <br>
-            <label for="Lider">Lider asignado</label>
-            <input type="text" id="Lider" required>
+            <label for="Lider"  >Lider asignado</label>
+            <input type="text" id="Lider" required placeholder="nombre de lider asignado">
             <br>
             <button type="button" id="mostrarBtn">Mostrar Grupo</button>
         </form>
 
         <div id="cardContainer"></div>
+        <br><br><br><br>
+        <h1>Crear nuevo grupo</h1>
+        <form id="groupForm">
+            <label for="leader">Líder a Cargo:</label>
+            <input type="text" id="leader" required placeholder="Ingresa nombre del Lider"><br>
+            <label for="member">Integrantes del Grupo:</label>
+            <br>
+            <input type="text" id="grupo" required placeholder="Ingresa nombre del Grupo"><br>
+            <label for="member">Nombre del Grupo:</label>
+            <input type="text" id="member" required placeholder="Ingresa nombre de nuevos integrantes">
+            <button type="button" id="agregarMiembro">Crear nuevo grupo</button><br>
+            <ul id="memberList"></ul>
+        </form>
     </div>
+
+
 
     <script src="index.js"></script>
 </body>
