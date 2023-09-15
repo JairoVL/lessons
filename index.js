@@ -7,7 +7,11 @@ let grupos = [
             "Nicolas Farina",
             "Irina Keiner",
             "Lucas Galvan",
-            "Lucas Ferraro"
+            "Lucas Ferraro",
+            "Julián Gorosito",
+            "Jorge Capodimonte",
+            "Melisa Aramayo"
+
         ],
     },
     {
@@ -19,10 +23,55 @@ let grupos = [
             "Rafael Casco",
             "Emanuel Reinoso",
             "Cian Vergara",
-            "Agustin Belgrano"
+            "Agustin Belgrano",
+            "Emanuel Reinoso",
+            "Melani Antuña ",
+            "David Cicconi"
         ],
     },
 
+    {
+        nombre: "Equipo cuete",
+        liderGrupo: "Augusto De Liseo",
+        integrantes: [
+            "Manuel Leiva",
+            "Axel Vazquez",
+            "Kevin Ahumada",
+            "Mauro Pettinari",
+            "Franco Campo",
+            "Natalia Herrera",
+            "Mariela Herrera",
+            
+        ],
+    },
+    {
+        nombre: "Grupo Quattro",
+        liderGrupo: "Franco Bertolotti",
+        integrantes: [
+            "Agustín Ganuza",
+            "Stefano Leone",
+            "Flavia Arce",
+            "Eric Farley",
+            "Julián Viso",
+            "Adrián  Ferrari",
+            "Adrián  Ferrari",
+           
+        ],
+    },
+    {
+        nombre: "WorkMates",
+        liderGrupo: "Sofia Recalde",
+        integrantes: [
+            "Sebastián Carlos Andrada",
+            "Agustín Pastor",
+            "Romeo Jovel",
+            "Brian Mercé",
+            "Bruno Gario",
+            "Guillermo Mangiante",
+            "Federico Botti",
+           
+        ],
+    },
 
 ];
 
@@ -43,15 +92,15 @@ function mostrarPersona() {
     const GrupoEncontrado = grupos.find(grupo => grupo.liderGrupo === LiderInput);
     const cardContainer = document.getElementById('cardContainer');
     cardContainer.innerHTML = '';
-   //se ejecucta la funcion mostrar persona cuando se hace clic y llama al valor del elemento HTML(INPUT lIDER)
-   // declaramos una constaste "persona encontrada" para poner el resultado de la busqueda
-   // "lista completa" es todo el array que hicimos uno con el metodo flatmap cpn el 
-   // metodo find llama al string que cumpla con la condicion que es que el nombre sea igual al valor del ID Lider Input
-   // (persona => persona === LiderInput); se le dice al metodo find que tome un a "persona" que represente los elementos
-   // del arreglo "lista completa" y compara si "persona" es ==> liderInput si da todo Ok devuelve a "persona" en "persona encontrada"
-   
+    //se ejecucta la funcion mostrar persona cuando se hace clic y llama al valor del elemento HTML(INPUT lIDER)
+    // declaramos una constaste "persona encontrada" para poner el resultado de la busqueda
+    // "lista completa" es todo el array que hicimos uno con el metodo flatmap cpn el 
+    // metodo find llama al string que cumpla con la condicion que es que el nombre sea igual al valor del ID Lider Input
+    // (persona => persona === LiderInput); se le dice al metodo find que tome un a "persona" que represente los elementos
+    // del arreglo "lista completa" y compara si "persona" es ==> liderInput si da todo Ok devuelve a "persona" en "persona encontrada"
 
-    if (GrupoEncontrado) { 
+
+    if (GrupoEncontrado) {
 
         const cardDiv = document.createElement('div');
         cardDiv.classList.add('card');
@@ -76,55 +125,51 @@ function mostrarPersona() {
 
 // formulario nuevo integrante
 
-document.addEventListener("DOMContentLoaded", function()) {
+
+
+document.addEventListener("DOMContentLoaded", function () {
     const leaderInput = document.getElementById("leader");
     const grupoInput = document.getElementById("grupo");
     const memberInput = document.getElementById("member");
     const agregarMiembroButton = document.getElementById("agregarMiembro");
     const memberList = document.getElementById("memberList");
-}
-  // Creao un array para almacenar los nombres de los integrantes. vacio
+
+
+    // Creao un array para almacenar los nombres de los integrantes. vacio
     const members = [];
 
-   // Agregamos un evento al botón "Crear nuevo grupo"
-    agregarMiembroButton.addEventListener("click", function() {
+    // Agregamos un evento al botón "Crear nuevo grupo"
+    agregarMiembroButton.addEventListener("click", function () {
         // Obtener el nombre del integrante y verificar si no está en blanco
-      const memberName = memberInput.value.trim(); // trim verifica que el nombre no esté en blanco
-      if (memberName) {
-        members.push(memberName);
-        // Agregar el nombre del integrante al array
-        memberInput.value = "";
-        // Actualizar la lista de integrantes en el DOM
-        updateMemberList();
-      }
+        const memberName = memberInput.value.trim(); // trim verifica que el nombre no esté en blanco
+        if (memberName) {
+            members.push(memberName);
+            // Agregar el nombre del integrante al array
+            memberInput.value = "";
+            // Actualizar la lista de integrantes en el DOM
+            // updateMemberList();
+        }
     });
 
-  // Funciones JavaScript para manejar los eventos de los botones
-  const gruposBtn = document.getElementById("gruposBtn");
-  const crearBtn = document.getElementById("crearBtn");
+})
 
-  gruposBtn.addEventListener("click", function() {
-      // Desplazamiento suave a la sección "Grupos Redjar"
-      window.location.href = "#formulario";
-  });
+// Funciones JavaScript para manejar los eventos de los botones
+const gruposBtn = document.getElementById("gruposBtn");
+const crearBtn = document.getElementById("crearBtn");
 
-  crearBtn.addEventListener("click", function() {
-      // Desplazamiento suave a la sección "Crear nuevo grupo"
-      window.location.href = "#cardContainer";
-  });
-  //hacer que la lista vacia se agregue al array grupos 
+gruposBtn.addEventListener("click", function () {
+    // Desplazamiento suave a la sección "Grupos Redjar"
+    window.location.href = "#formulario";
+});
+
+crearBtn.addEventListener("click", function () {
+    // Desplazamiento suave a la sección "Crear nuevo grupo"
+    window.location.href = "#cardContainer";
+});
 
 
-// let nombreInput = document.getElementById("nombre");
 
-// agregarBoton.addEventListener("click", function () {
 
-//     let nuevoIntegrante = nombreInput.value;
-//     if (nuevoIntegrante !== "") {
-//         integrantes.push(nuevoIntegrante); // si el valor no esta vacio (!==) se agrega integrante al array con el metodo push
-//         nombreInput.value = ""; // Limpiar el campo de entrada
-//     }
-// });
 
 // function actualizarListaIntegrantes() {
 //     listaIntegrantes.innerHTML = ""; // Limpiar la lista actual, el contenido lista de integrante lo le como lista vacia
@@ -134,32 +179,3 @@ document.addEventListener("DOMContentLoaded", function()) {
 //         listaIntegrantes.appendChild(integranteItem);
 //     }
 // }
-
-
-//  console.log(grupos[1].integrantes[4]) como creas lista de objetos y como llamarlos
-// creo la lista con todos los integrantes que hay hasta ahora
-// declaro todas las variables con el ID que tengo en el HTML del formulario
-
-//  let formulario = document.getElementById("formulario");
-//  let nombreInput = document.getElementById("nombre");
-//  let nombreLiderInput = document.getElementById("nombreLider");
-//  let agregarBoton = document.getElementById("agregar");
-//  let listaIntegrantes = document.getElementById("lista-integrantes");
-
-// agregarBoton.addEventListener("click", function () {
-
-//     let nuevoIntegrante = nombreInput.value;
-//     if (nuevoIntegrante !== "") {
-//         integrantes.push(nuevoIntegrante); // si el valor no esta vacio (!==) se agrega integrante al array con el metodo push
-//         nombreInput.value = ""; // Limpiar el campo de entrada
-//     }
-// });
-
-// function actualizarListaIntegrantes() {
-//     listaIntegrantes.innerHTML = ""; // Limpiar la lista actual, el contenido lista de integrante lo le como lista vacia
-//     for (let i = 0; i < integrantes.length; i++) {
-//         let integranteItem = document.createElement("li");
-//         integranteItem.textContent = integrantes[i];
-//         listaIntegrantes.appendChild(integranteItem);
-//     }
-// 

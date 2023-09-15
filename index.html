@@ -7,35 +7,65 @@
 </head>
 
 <body>
-    
+    <!--------------------------- Cabecera ---------------------------------->
+    <header>
+        <section id="header">
+            <div class="header container">
+                <div class="nav-bar">
+                    <div class="brand">
+                        <a href="#hero">
+                            <H1>redjar<SPAn>.</SPAn></H1>
+                        </a>
+                    </div>
+                    <div class="nav-list">
+                        <div class="hamburger">
+                            <div class="bar"></div>
+                        </div>
+                        <ul>
+                            <li><a href="#encontrar-grupo" id="encontrar-grupo">Encontrar Grupo</a></li>
+                            <li><a href="#crear-nuevo-grupo" id="crear-nuevo-grupo">Crear Nuevo Grupo</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </header>
 
-    <div class="card">
-            
-        <p>Bienvenido a administracion Redjar <br>
-        ¿que deseas hacer?</p>
-        <button id="gruposBtn">Encontrar tu grupo</button>
-        <button id="crearBtn">Crear Nuevo Grupo</button>
-    </div>
+    <section id="hero">
+        <div class="card-hero">
+            <h3>Dinámica de Grupos <br>
+                ¿que deseas hacer?</h3>
+            <button id="gruposBtn">Encontrar tu grupo</button>
+            <button id="crearBtn">Crear Nuevo Grupo</button>
+        </div>
+    </section>
 
-    <div class="container">
-       
-    
-        
-
-        <h1>Grupos Redjar</h1>
-        <form id="formulario">
-            <label for="nombre">Nombre</label>
-            <input type="text" id="nombre" required placeholder="ingresa tu nombre">
+    <section id="encontrar-grupo">
+        <div class="container">
+            <h2>Grupos Redjar</h2>
             <br>
-            <label for="Lider"  >Lider asignado</label>
-            <input type="text" id="Lider" required placeholder="nombre de lider asignado">
-            <br>
-            <button type="button" id="mostrarBtn">Mostrar Grupo</button>
-        </form>
+            <form id="formulario">
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" required placeholder="ingresa tu nombre">
+                <br>
+                <label for="Lider">Lider asignado</label>
+                <input type="text" id="Lider" required placeholder="nombre de lider asignado">
+                <br>
+                <button type="button" id="mostrarBtn">Mostrar Grupo</button>
+            </form>
 
-        <div id="cardContainer"></div>
-        <br><br><br><br>
-        <h1>Crear nuevo grupo</h1>
+            <div id="cardContainer"></div>
+        </div>
+    </section>
+
+
+    <br><br><br><br>
+    <hr>
+
+    <section id="crear-nuevo-grupo">
+        <div class="container">
+        <h2>Crear nuevo grupo</h2>
+        <br>
         <form id="groupForm">
             <label for="leader">Líder a Cargo:</label>
             <input type="text" id="leader" required placeholder="Ingresa nombre del Lider"><br>
@@ -47,7 +77,10 @@
             <button type="button" id="agregarMiembro">Crear nuevo grupo</button><br>
             <ul id="memberList"></ul>
         </form>
-    </div>
+        </div>
+
+
+    </section>
 
 
 
