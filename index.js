@@ -41,7 +41,7 @@ let grupos = [
             "Franco Campo",
             "Natalia Herrera",
             "Mariela Herrera",
-            
+
         ],
     },
     {
@@ -55,7 +55,7 @@ let grupos = [
             "Julián Viso",
             "Adrián  Ferrari",
             "Adrián  Ferrari",
-           
+
         ],
     },
     {
@@ -69,7 +69,7 @@ let grupos = [
             "Bruno Gario",
             "Guillermo Mangiante",
             "Federico Botti",
-           
+
         ],
     },
 
@@ -147,23 +147,39 @@ document.addEventListener("DOMContentLoaded", function () {
             // Agregar el nombre del integrante al array
             memberInput.value = "";
             // Actualizar la lista de integrantes en el DOM
-            // updateMemberList();
+            updateMemberList();
         }
     });
 
-})
+    // Función para actualizar la lista de integrantes en el DOM
+    function updateMemberList() {
+        memberList.innerHTML = "";
+        members.forEach(function (member) {
+            const li = document.createElement("li");
+            li.textContent = member;
+            memberList.appendChild(li);
+        });
+        // Si se ha ingresado un líder, mostralo en la parte superior de la lista
+        if (leaderInput.value.trim() !== "") {
+            const leaderLi = document.createElement("li");
+            leaderLi.textContent = `Líder: ${leaderInput.value}`;
+            memberList.insertBefore(leaderLi, memberList.firstChild);
+        }
+    }
+});
+
 
 // Funciones JavaScript para manejar los eventos de los botones
 const gruposBtn = document.getElementById("gruposBtn");
 const crearBtn = document.getElementById("crearBtn");
 
 gruposBtn.addEventListener("click", function () {
-    // Desplazamiento suave a la sección "Grupos Redjar"
+
     window.location.href = "#formulario";
 });
 
 crearBtn.addEventListener("click", function () {
-    // Desplazamiento suave a la sección "Crear nuevo grupo"
+
     window.location.href = "#cardContainer";
 });
 
