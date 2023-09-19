@@ -49,6 +49,12 @@ p {
   
 }
 
+.cardContent{
+  display: flex;
+  background: #ca8011;
+  color: #ccc;
+
+}
 /* Header seccion */
 #header {
   position: fixed;

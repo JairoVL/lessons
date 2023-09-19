@@ -1,4 +1,5 @@
-let grupos = [
+// Definición de la lista de grupos
+const grupos = [
     {
         nombre: "berenjena soul power",
         liderGrupo: "Lucas Galvan",
@@ -11,7 +12,6 @@ let grupos = [
             "Julián Gorosito",
             "Jorge Capodimonte",
             "Melisa Aramayo"
-
         ],
     },
     {
@@ -25,11 +25,10 @@ let grupos = [
             "Cian Vergara",
             "Agustin Belgrano",
             "Emanuel Reinoso",
-            "Melani Antuña ",
-            "David Cicconi"
+            "Melani Antuña ",
+            "David Cicconi"
         ],
     },
-
     {
         nombre: "Equipo cuete",
         liderGrupo: "Augusto De Liseo",
@@ -41,7 +40,6 @@ let grupos = [
             "Franco Campo",
             "Natalia Herrera",
             "Mariela Herrera",
-
         ],
     },
     {
@@ -53,9 +51,8 @@ let grupos = [
             "Flavia Arce",
             "Eric Farley",
             "Julián Viso",
-            "Adrián  Ferrari",
-            "Adrián  Ferrari",
-
+            "Adrián Ferrari",
+            "Adrián Ferrari",
         ],
     },
     {
@@ -69,22 +66,12 @@ let grupos = [
             "Bruno Gario",
             "Guillermo Mangiante",
             "Federico Botti",
-
         ],
     },
-
 ];
 
-
-
-//flatMap para recorrer cada objeto en el array grupos y extraer los
-// arreglos de integrantes y 
-//hace que sea un solo array llamado lista completa
-
+// Función para mostrar un grupo al hacer clic en el botón
 const mostrarBtn = document.getElementById('mostrarBtn');
-
-//se hace referencia a el boton creado en HTML y con getelementId 
-//cuando se hace clic se ejecuta la funcion "mostrarpersona" 
 mostrarBtn.addEventListener('click', mostrarPersona);
 
 function mostrarPersona() {
@@ -92,16 +79,8 @@ function mostrarPersona() {
     const GrupoEncontrado = grupos.find(grupo => grupo.liderGrupo === LiderInput);
     const cardContainer = document.getElementById('cardContainer');
     cardContainer.innerHTML = '';
-    //se ejecucta la funcion mostrar persona cuando se hace clic y llama al valor del elemento HTML(INPUT lIDER)
-    // declaramos una constaste "persona encontrada" para poner el resultado de la busqueda
-    // "lista completa" es todo el array que hicimos uno con el metodo flatmap cpn el 
-    // metodo find llama al string que cumpla con la condicion que es que el nombre sea igual al valor del ID Lider Input
-    // (persona => persona === LiderInput); se le dice al metodo find que tome un a "persona" que represente los elementos
-    // del arreglo "lista completa" y compara si "persona" es ==> liderInput si da todo Ok devuelve a "persona" en "persona encontrada"
-
 
     if (GrupoEncontrado) {
-
         const cardDiv = document.createElement('div');
         cardDiv.classList.add('card');
 
@@ -109,6 +88,7 @@ function mostrarPersona() {
         cardTitle.textContent = GrupoEncontrado.nombre;
 
         const cardContent = document.createElement('p');
+        cardContent.classList.add("cardContent");
         cardContent.textContent = `Líder: ${GrupoEncontrado.liderGrupo}, Integrantes: ${GrupoEncontrado.integrantes.join(', ')}`;
 
         cardDiv.appendChild(cardTitle);
@@ -123,35 +103,59 @@ function mostrarPersona() {
     }
 }
 
-// formulario nuevo integrante
-
-
-
+// Funciones para agregar y eliminar integrantes y grupos
 document.addEventListener("DOMContentLoaded", function () {
     const leaderInput = document.getElementById("leader");
     const grupoInput = document.getElementById("grupo");
     const memberInput = document.getElementById("member");
     const agregarMiembroButton = document.getElementById("agregarMiembro");
     const memberList = document.getElementById("memberList");
+    const eliminarMiembroButton = document.getElementById("eliminarMiembro");
+    const grupoList = document.getElementById("grupoList");
+    const eliminarGrupoButton = document.getElementById("eliminarGrupo");
 
-
-    // Creao un array para almacenar los nombres de los integrantes. vacio
+    // Crear arrays para almacenar los nombres de los integrantes y grupos
     const members = [];
+    const grupos = [];
 
-    // Agregamos un evento al botón "Crear nuevo grupo"
     agregarMiembroButton.addEventListener("click", function () {
-        // Obtener el nombre del integrante y verificar si no está en blanco
-        const memberName = memberInput.value.trim(); // trim verifica que el nombre no esté en blanco
+        const memberName = memberInput.value.trim();
         if (memberName) {
             members.push(memberName);
-            // Agregar el nombre del integrante al array
             memberInput.value = "";
-            // Actualizar la lista de integrantes en el DOM
             updateMemberList();
         }
     });
 
-    // Función para actualizar la lista de integrantes en el DOM
+    eliminarMiembroButton.addEventListener("click", function () {
+        const memberName = memberInput.value.trim();
+        const index = members.indexOf(memberName);
+        if (index !== -1) {
+            members.splice(index, 1);
+            memberInput.value = "";
+            updateMemberList();
+        }
+    });
+
+    agregarGrupoButton.addEventListener("click", function () {
+        const grupoName = grupoInput.value.trim();
+        if (grupoName) {
+            grupos.push(grupoName);
+            grupoInput.value = "";
+            updateGrupoList();
+        }
+    });
+
+    eliminarGrupoButton.addEventListener("click", function () {
+        const grupoName = grupoInput.value.trim();
+        const index = grupos.indexOf(grupoName);
+        if (index !== -1) {
+            grupos.splice(index, 1);
+            grupoInput.value = "";
+            updateGrupoList();
+        }
+    });
+
     function updateMemberList() {
         memberList.innerHTML = "";
         members.forEach(function (member) {
@@ -159,39 +163,26 @@ document.addEventListener("DOMContentLoaded", function () {
             li.textContent = member;
             memberList.appendChild(li);
         });
-        // Si se ha ingresado un líder, mostralo en la parte superior de la lista
-        if (leaderInput.value.trim() !== "") {
-            const leaderLi = document.createElement("li");
-            leaderLi.textContent = `Líder: ${leaderInput.value}`;
-            memberList.insertBefore(leaderLi, memberList.firstChild);
-        }
+    }
+
+    function updateGrupoList() {
+        grupoList.innerHTML = "";
+        grupos.forEach(function (grupo) {
+            const li = document.createElement("li");
+            li.textContent = grupo;
+            grupoList.appendChild(li);
+        });
     }
 });
 
-
-// Funciones JavaScript para manejar los eventos de los botones
+// Eventos de redireccionamiento
 const gruposBtn = document.getElementById("gruposBtn");
 const crearBtn = document.getElementById("crearBtn");
 
 gruposBtn.addEventListener("click", function () {
-
     window.location.href = "#formulario";
 });
 
 crearBtn.addEventListener("click", function () {
-
     window.location.href = "#cardContainer";
 });
-
-
-
-
-
-// function actualizarListaIntegrantes() {
-//     listaIntegrantes.innerHTML = ""; // Limpiar la lista actual, el contenido lista de integrante lo le como lista vacia
-//     for (let i = 0; i < integrantes.length; i++) {
-//         let integranteItem = document.createElement("li");
-//         integranteItem.textContent = integrantes[i];
-//         listaIntegrantes.appendChild(integranteItem);
-//     }
-// }

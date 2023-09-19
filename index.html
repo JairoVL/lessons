@@ -1,20 +1,20 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="es">
 <head>
-    <title>Grupos Redjar</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Título de tu página</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <!--------------------------- Cabecera ---------------------------------->
+    <!-- Cabecera -->
     <header>
         <section id="header">
             <div class="header container">
                 <div class="nav-bar">
                     <div class="brand">
                         <a href="#hero">
-                            <H1>redjar<SPAn>.</SPAn></H1>
+                            <h1>redjar<span>.</span></h1>
                         </a>
                     </div>
                     <div class="nav-list">
@@ -32,60 +32,57 @@
         </section>
     </header>
 
+    <!-- Sección del Héroe -->
     <section id="hero">
         <div class="card-hero">
             <h3>Dinámica de Grupos <br>
-                ¿que deseas hacer?</h3>
+                ¿Qué deseas hacer?</h3>
             <button id="gruposBtn">Encontrar tu grupo</button>
             <button id="crearBtn">Crear Nuevo Grupo</button>
         </div>
     </section>
 
+    <!-- Sección "Encontrar Grupo" -->
     <section id="encontrar-grupo">
         <div class="container">
             <h2>Grupos Redjar</h2>
             <br>
             <form id="formulario">
                 <label for="nombre">Nombre</label>
-                <input type="text" id="nombre" required placeholder="ingresa tu nombre">
+                <input type="text" id="nombre" required placeholder="Ingresa tu nombre">
                 <br>
-                <label for="Lider">Lider asignado</label>
-                <input type="text" id="Lider" required placeholder="nombre de lider asignado">
+                <label for="Lider">Líder asignado</label>
+                <input type="text" id="Lider" required placeholder="Nombre de líder asignado">
                 <br>
                 <button type="button" id="mostrarBtn">Mostrar Grupo</button>
             </form>
-
             <div id="cardContainer"></div>
         </div>
     </section>
 
-
     <br><br><br><br>
     <hr>
 
+    <!-- Sección "Crear Nuevo Grupo" -->
     <section id="crear-nuevo-grupo">
         <div class="container">
-        <h2>Crear nuevo grupo</h2>
-        <br>
-        <form id="groupForm">
-            <label for="leader">Líder a Cargo:</label>
-            <input type="text" id="leader" required placeholder="Ingresa nombre del Lider"><br>
-            <label for="member">Integrantes del Grupo:</label>
+            <h2>Crear nuevo grupo</h2>
             <br>
-            <input type="text" id="grupo" required placeholder="Ingresa nombre del Grupo"><br>
-            <label for="member">Nombre del Grupo:</label>
-            <input type="text" id="member" required placeholder="Ingresa nombre de nuevos integrantes">
-            <button type="button" id="agregarMiembro">Crear nuevo grupo</button><br>
-            <ul id="memberList"></ul>
-        </form>
+            <form id="groupForm">
+                <label for="leader">Líder a Cargo:</label>
+                <input type="text" id="leader" required placeholder="Ingresa nombre del Líder"><br>
+                <label for="member">Integrantes del Grupo:</label>
+                <br>
+                <textarea name="" id="" cols="30" rows="10">personas</textarea>
+                <input type="text" id="grupo" required placeholder="Ingresa nombre del Grupo"><br>
+                <label for="member">Nombre del Grupo:</label>
+                <input type="text" id="member" required placeholder="Ingresa nombre de nuevos integrantes">
+                <button type="button" id="agregarMiembro">Crear nuevo grupo</button><br>
+                <ul id="memberList"></ul>
+            </form>
         </div>
-
-
     </section>
-
-
 
     <script src="index.js"></script>
 </body>
-
 </html>
