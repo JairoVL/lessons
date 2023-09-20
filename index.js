@@ -108,53 +108,52 @@ document.addEventListener("DOMContentLoaded", function () {
     const leaderInput = document.getElementById("leader");
     const grupoInput = document.getElementById("grupo");
     const memberInput = document.getElementById("member");
-    const agregarMiembroButton = document.getElementById("agregarMiembro");
     const memberList = document.getElementById("memberList");
-    const eliminarMiembroButton = document.getElementById("eliminarMiembro");
     const grupoList = document.getElementById("grupoList");
     const eliminarGrupoButton = document.getElementById("eliminarGrupo");
+    const agregarGrupoButton = document.getElementById("agregarGrupo");
 
-    // Crear arrays para almacenar los nombres de los integrantes y grupos
-    const members = [];
-    const grupos = [];
 
-    agregarMiembroButton.addEventListener("click", function () {
-        const memberName = memberInput.value.trim();
-        if (memberName) {
-            members.push(memberName);
-            memberInput.value = "";
-            updateMemberList();
-        }
-    });
-
-    eliminarMiembroButton.addEventListener("click", function () {
-        const memberName = memberInput.value.trim();
-        const index = members.indexOf(memberName);
-        if (index !== -1) {
-            members.splice(index, 1);
-            memberInput.value = "";
-            updateMemberList();
-        }
-    });
 
     agregarGrupoButton.addEventListener("click", function () {
         const grupoName = grupoInput.value.trim();
-        if (grupoName) {
-            grupos.push(grupoName);
-            grupoInput.value = "";
-            updateGrupoList();
+
+        // ver clausula de guard (guardia)
+        if (!grupoName) {
+            alert("tiene que cargar el nombre del grupo");
+            return;
         }
+
+        const LiderName = leaderInput.value.trim();
+        const memberName = memberInput.value.trim();
+
+
+        if (!memberName) {
+            alert("tenes que ingresar al menos un miembro");
+            return;
+        }
+
+        if (!LiderName) {
+            alert("tenes que ingresar al lider designado");
+            return;
+        }
+
+        const nuevoGrupo = {
+            nombre: grupoName,
+            liderGrupo: LiderName,
+            integrantes: memberName.split("\n")
+        }
+
+        grupos.push(nuevoGrupo);
+        
+        // grupos.push(grupoName);
+        grupoInput.value = "";
+        leaderInput.value = "";
+        memberInput.value = "";
+        // updateGrupoList();
     });
 
-    eliminarGrupoButton.addEventListener("click", function () {
-        const grupoName = grupoInput.value.trim();
-        const index = grupos.indexOf(grupoName);
-        if (index !== -1) {
-            grupos.splice(index, 1);
-            grupoInput.value = "";
-            updateGrupoList();
-        }
-    });
+ 
 
     function updateMemberList() {
         memberList.innerHTML = "";
@@ -186,3 +185,4 @@ gruposBtn.addEventListener("click", function () {
 crearBtn.addEventListener("click", function () {
     window.location.href = "#cardContainer";
 });
+

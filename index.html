@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Título de tu página</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <!-- Cabecera -->
     <header>
@@ -48,19 +50,21 @@
             <h2>Grupos Redjar</h2>
             <br>
             <form id="formulario">
-                <label for="nombre">Nombre</label>
-                <input type="text" id="nombre" required placeholder="Ingresa tu nombre">
-                <br>
-                <label for="Lider">Líder asignado</label>
-                <input type="text" id="Lider" required placeholder="Nombre de líder asignado">
-                <br>
-                <button type="button" id="mostrarBtn">Mostrar Grupo</button>
+                <div id="lideresContainer">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" id="nombre" required placeholder="Ingresa tu nombre">
+                    <br>
+                    <label for="Lider">Líder asignado</label>
+                    <input type="text" id="Lider" required placeholder="Nombre de líder asignado">
+                    <br>
+                    <button type="button" id="mostrarBtn">Mostrar Grupo</button>
+                </div>
             </form>
             <div id="cardContainer"></div>
         </div>
     </section>
 
-    <br><br><br><br>
+    <br>
     <hr>
 
     <!-- Sección "Crear Nuevo Grupo" -->
@@ -70,19 +74,20 @@
             <br>
             <form id="groupForm">
                 <label for="leader">Líder a Cargo:</label>
-                <input type="text" id="leader" required placeholder="Ingresa nombre del Líder"><br>
+                <input type="text" id="leader" required placeholder="Ingresa nombre del Líder">
+                <label for="grupo">Nombre del Grupo:</label>
+                <input type="text" id="grupo" required placeholder="Ingresa nombre del Grupo">
                 <label for="member">Integrantes del Grupo:</label>
-                <br>
-                <textarea name="" id="" cols="30" rows="10">personas</textarea>
-                <input type="text" id="grupo" required placeholder="Ingresa nombre del Grupo"><br>
-                <label for="member">Nombre del Grupo:</label>
-                <input type="text" id="member" required placeholder="Ingresa nombre de nuevos integrantes">
-                <button type="button" id="agregarMiembro">Crear nuevo grupo</button><br>
-                <ul id="memberList"></ul>
+                <textarea required placeholder="Ingresa nuevos miembros" id="member" cols="30" rows="10"></textarea>
+                <button type="button" id="agregarGrupo">Crear nuevo grupo</button><br>
             </form>
+            <div class="listaDeMiembros">
+                <ul id="memberList"></ul>
+            </div>
         </div>
     </section>
 
     <script src="index.js"></script>
 </body>
+
 </html>
