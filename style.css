@@ -2,7 +2,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  margin-left: 1rem;
+  
 }
 html {
   font-size: 10px;
@@ -47,6 +47,7 @@ p {
   flex-direction: column;
   align-items: start;
   justify-content: start;
+  margin-left: 1rem;
   
 }
 

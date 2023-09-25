@@ -56,7 +56,7 @@ const grupos = [
         ],
     },
     {
-        nombre: "WorkMates",
+        nombre: "Work Mates",
         liderGrupo: "Sofia Recalde",
         integrantes: [
             "Sebastián Carlos Andrada",
@@ -69,6 +69,80 @@ const grupos = [
         ],
     },
 ];
+
+//  evento al botón de búsqueda para buscar grupos
+const buscarBtn = document.getElementById('buscarBtn');
+buscarBtn.addEventListener('click', buscarGrupo);
+
+// Función para buscar grupos
+function buscarGrupo() {
+    const busquedaInput = document.getElementById('busqueda').value.trim().toLowerCase();
+
+    // Filtrar los grupos que coinciden con la búsqueda
+    const gruposFiltrados = grupos.filter(grupo => grupo.nombre.toLowerCase().includes(busquedaInput));
+
+    const cardContainer = document.getElementById('cardContainer');
+    cardContainer.innerHTML = '';
+
+    if (gruposFiltrados.length > 0) {
+        gruposFiltrados.forEach(GrupoEncontrado => {
+            const cardDiv = document.createElement('div');
+            cardDiv.classList.add('card');
+
+            const cardTitle = document.createElement('h3');
+            cardTitle.textContent = GrupoEncontrado.nombre;
+
+            const cardContent = document.createElement('p');
+            cardContent.classList.add("cardContent");
+            cardContent.textContent = `Líder: ${GrupoEncontrado.liderGrupo}, Integrantes: ${GrupoEncontrado.integrantes.join(', ')}`;
+
+            cardDiv.appendChild(cardTitle);
+            cardDiv.appendChild(cardContent);
+
+            cardContainer.appendChild(cardDiv);
+        });
+    } else {
+        const alertDiv = document.createElement('div');
+        alertDiv.classList.add('alert');
+        alertDiv.textContent = 'No se encontraron grupos con ese nombre.';
+        cardContainer.appendChild(alertDiv);
+    }
+}
+
+// Función para buscar lideres
+function buscarLider() {
+    const busquedaInput = document.getElementById('busqueda').value.trim().toLowerCase();
+
+    // Filtrar los grupos que coinciden con la búsqueda
+    const lideresFiltrados = grupos.filter(grupo => grupo.liderGrupo.toLowerCase().includes(busquedaInput));
+
+    const cardContainer = document.getElementById('cardContainer');
+    cardContainer.innerHTML = '';
+
+    if (lideresFiltrados.length > 0) {
+        lideresFiltrados.forEach(LiderEncontrado => {
+            const cardDiv = document.createElement('div');
+            cardDiv.classList.add('card');
+
+            const cardTitle = document.createElement('h3');
+            cardTitle.textContent = LiderEncontrado.nombre;
+
+            const cardContent = document.createElement('p');
+            cardContent.classList.add("cardContent");
+            cardContent.textContent = `Líder: ${LiderEncontrado.liderGrupo}, Integrantes: ${LiderEncontrado.integrantes.join(', ')}`;
+
+            cardDiv.appendChild(cardTitle);
+            cardDiv.appendChild(cardContent);
+
+            cardContainer.appendChild(cardDiv);
+        });
+    } else {
+        const alertDiv = document.createElement('div');
+        alertDiv.classList.add('alert');
+        alertDiv.textContent = 'No se encontró un lider con ese nombre.';
+        cardContainer.appendChild(alertDiv);
+    }
+}
 
 // Función para mostrar un grupo al hacer clic en el botón
 const mostrarBtn = document.getElementById('mostrarBtn');
@@ -145,7 +219,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         grupos.push(nuevoGrupo);
-        
+
         // grupos.push(grupoName);
         grupoInput.value = "";
         leaderInput.value = "";
@@ -153,7 +227,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // updateGrupoList();
     });
 
- 
+
 
     function updateMemberList() {
         memberList.innerHTML = "";
@@ -173,6 +247,8 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
+
+
 
 // Eventos de redireccionamiento
 const gruposBtn = document.getElementById("gruposBtn");

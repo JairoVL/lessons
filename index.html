@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Título de tu página</title>
+    <title>Grupos Redjar</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -35,6 +35,7 @@
     </header>
 
     <!-- Sección del Héroe -->
+    
     <section id="hero">
         <div class="card-hero">
             <h3>Dinámica de Grupos <br>
@@ -43,7 +44,34 @@
             <button id="crearBtn">Crear Nuevo Grupo</button>
         </div>
     </section>
+<!-- Sección de búsqueda -->
+    <section>
+        <label for="busqueda">Buscar Grupo:</label>
+        <input type="text" id="busqueda" placeholder="Nombre del Grupo">
+        <button id="buscarBtn">Buscar</button>
+    
+        <label for="busqueda">Buscar Lider:</label>
+        <input type="text" id="busqueda" placeholder="Nombre de Lider">
+        <button id="buscarBtn">Buscar</button>
+    </section>
+  <!-- Agrega un formulario para agregar integrantes a un grupo -->
+  <h3>Agregar Integrante a un Grupo</h3>
+  <label for="nombreGrupo">Nombre del Grupo:</label>
+  <input type="text" id="nombreGrupo" placeholder="Nombre del Grupo">
+  <label for="nuevoIntegrante">Nuevo Integrante:</label>
+  <input type="text" id="nuevoIntegrante" placeholder="Nombre del Integrante">
+  <button id="agregarIntegranteBtn">Agregar Integrante</button>
 
+  <!-- Agrega un formulario para eliminar integrantes de un grupo -->
+  <h3>Eliminar Integrante de un Grupo</h3>
+  <label for="nombreGrupoEliminar">Nombre del Grupo:</label>
+  <input type="text" id="nombreGrupoEliminar" placeholder="Nombre del Grupo">
+  <label for="integranteAEliminar">Integrante a Eliminar:</label>
+  <input type="text" id="integranteAEliminar" placeholder="Nombre del Integrante">
+  <button id="eliminarIntegranteBtn">Eliminar Integrante</button>
+
+  <!-- Container para mostrar los grupos o mensajes -->
+  <div id="cardContainer"></div>
     <!-- Sección "Encontrar Grupo" -->
     <section id="encontrar-grupo">
         <div class="container">
