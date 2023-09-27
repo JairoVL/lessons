@@ -20,8 +20,8 @@ h6.forEach((cadaH2, i) => {
             // Quitamos la clase activo de TODOS los bloques
             bloque[i].classList.remove('activo')
         })
-        // Añadiendo la clase activo al bloque cuya posición sea igual al del h2
-        // (Línea número 12)
+        // Añadiendo la clase activo al bloque cuya posición sea igual al del h6
+
         bloque[i].classList.add('activo')
 
     })
@@ -124,12 +124,18 @@ function mapearGrupoACard(grupo) {
 
 // Función para buscar grupos
 function buscarGrupo() {
-    const busquedaInput = document.getElementById('busqueda').value.trim().toLowerCase();
+    const containerEncontrarGrupo = document.getElementById('containerEncontrarGrupo');
+    const existingCardContainer = document.getElementById('cardContainer');
+    if (!!existingCardContainer) {
+        containerEncontrarGrupo.removeChild(existingCardContainer);
+    }
+    const nombreInput = document.getElementById('nombre').value.trim().toLowerCase();
 
     // Filtrar los grupos que coinciden con la búsqueda
-    const gruposFiltrados = grupos.filter(grupo => grupo.nombre.toLowerCase().includes(busquedaInput));
+    const gruposFiltrados = grupos.filter(grupo => grupo.nombre.toLowerCase().includes(nombreInput));
 
-    const cardContainer = document.getElementById('cardContainer');
+    const cardContainer = document.createElement("div");
+    cardContainer.id = "cardContainer";
     cardContainer.innerHTML = '';
 
     if (gruposFiltrados.length > 0) {
@@ -144,6 +150,7 @@ function buscarGrupo() {
         alertDiv.textContent = 'No se encontraron grupos con ese nombre.';
         cardContainer.appendChild(alertDiv);
     }
+    containerEncontrarGrupo.appendChild(cardContainer);
 }
 
 // Función para buscar lideres
@@ -171,37 +178,37 @@ function buscarLider() {
 }
 
 // Función para mostrar un grupo al hacer clic en el botón
-const mostrarBtn = document.getElementById('mostrarBtn');
-mostrarBtn.addEventListener('click', mostrarPersona);
+// const mostrarBtn = document.getElementById('mostrarBtn');
+// mostrarBtn.addEventListener('click', mostrarPersona);
 
-function mostrarPersona() {
-    const LiderInput = document.getElementById('Lider').value;
-    const GrupoEncontrado = grupos.find(grupo => grupo.liderGrupo === LiderInput);
-    const cardContainer = document.getElementById('cardContainer');
-    cardContainer.innerHTML = '';
+// function mostrarPersona() {
+//     const LiderInput = document.getElementById('Lider').value;
+//     const GrupoEncontrado = grupos.find(grupo => grupo.liderGrupo === LiderInput);
+//     const cardContainer = document.getElementById('cardContainer');
+//     cardContainer.innerHTML = '';
 
-    if (GrupoEncontrado) {
-        const cardDiv = document.createElement('div');
-        cardDiv.classList.add('card');
+//     if (GrupoEncontrado) {
+//         const cardDiv = document.createElement('div');
+//         cardDiv.classList.add('card');
 
-        const cardTitle = document.createElement('h3');
-        cardTitle.textContent = GrupoEncontrado.nombre;
+//         const cardTitle = document.createElement('h3');
+//         cardTitle.textContent = GrupoEncontrado.nombre;
 
-        const cardContent = document.createElement('p');
-        cardContent.classList.add("cardContent");
-        cardContent.textContent = `Líder: ${GrupoEncontrado.liderGrupo}, Integrantes: ${GrupoEncontrado.integrantes.join(', ')}`;
+//         const cardContent = document.createElement('p');
+//         cardContent.classList.add("cardContent");
+//         cardContent.textContent = `Líder: ${GrupoEncontrado.liderGrupo}, Integrantes: ${GrupoEncontrado.integrantes.join(', ')}`;
 
-        cardDiv.appendChild(cardTitle);
-        cardDiv.appendChild(cardContent);
+//         cardDiv.appendChild(cardTitle);
+//         cardDiv.appendChild(cardContent);
 
-        cardContainer.appendChild(cardDiv);
-    } else {
-        const alertDiv = document.createElement('div');
-        alertDiv.classList.add('alert');
-        alertDiv.textContent = 'No se encontró el grupo.';
-        cardContainer.appendChild(alertDiv);
-    }
-}
+//         cardContainer.appendChild(cardDiv);
+//     } else {
+//         const alertDiv = document.createElement('div');
+//         alertDiv.classList.add('alert');
+//         alertDiv.textContent = 'No se encontró el grupo.';
+//         cardContainer.appendChild(alertDiv);
+//     }
+// }
 
 // Funciones para agregar y eliminar integrantes y grupos
 document.addEventListener("DOMContentLoaded", function () {
@@ -277,14 +284,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 // Eventos de redireccionamiento
-const gruposBtn = document.getElementById("gruposBtn");
-const crearBtn = document.getElementById("crearBtn");
+// const gruposBtn = document.getElementById("gruposBtn");
+// const crearBtn = document.getElementById("crearBtn");
 
-gruposBtn.addEventListener("click", function () {
-    window.location.href = "#formulario";
-});
+// gruposBtn.addEventListener("click", function () {
+//     window.location.href = "#formulario";
+// });
 
-crearBtn.addEventListener("click", function () {
-    window.location.href = "#cardContainer";
-});
+// crearBtn.addEventListener("click", function () {
+//     window.location.href = "#cardContainer";
+// });
 
