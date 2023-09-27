@@ -1,3 +1,33 @@
+// acordeon 
+
+'use strict'
+
+const bloque = document.querySelectorAll('.bloque')
+const h6 = document.querySelectorAll('.h6')
+
+
+// Cuando CLICK en h2,
+// QUITAR la clase activo de TODOS los bloque
+// Vamos a añadir la clase activo al BLOQUE con la POSICION del h6
+
+// Recorrer TODOS los h2
+h6.forEach((cadaH2, i) => {
+    // Asignando un CLICK a cada h2
+    h6[i].addEventListener('click', () => {
+
+        // Recorrer TODOS los bloque
+        bloque.forEach((cadaBloque, i) => {
+            // Quitamos la clase activo de TODOS los bloques
+            bloque[i].classList.remove('activo')
+        })
+        // Añadiendo la clase activo al bloque cuya posición sea igual al del h2
+        // (Línea número 12)
+        bloque[i].classList.add('activo')
+
+    })
+})
+
+
 // Definición de la lista de grupos
 const grupos = [
     {
@@ -74,6 +104,24 @@ const grupos = [
 const buscarBtn = document.getElementById('buscarBtn');
 buscarBtn.addEventListener('click', buscarGrupo);
 
+function mapearGrupoACard(grupo) {
+
+    const cardDiv = document.createElement('div');
+    cardDiv.classList.add('card');
+
+    const cardTitle = document.createElement('h3');
+    cardTitle.textContent = grupo.nombre;
+
+    const cardContent = document.createElement('p');
+    cardContent.classList.add("cardContent");
+    cardContent.textContent = `Líder: ${grupo.liderGrupo}, Integrantes: ${grupo.integrantes.join(', ')}`;
+
+    cardDiv.appendChild(cardTitle);
+    cardDiv.appendChild(cardContent);
+
+    return cardDiv;
+}
+
 // Función para buscar grupos
 function buscarGrupo() {
     const busquedaInput = document.getElementById('busqueda').value.trim().toLowerCase();
@@ -86,18 +134,7 @@ function buscarGrupo() {
 
     if (gruposFiltrados.length > 0) {
         gruposFiltrados.forEach(GrupoEncontrado => {
-            const cardDiv = document.createElement('div');
-            cardDiv.classList.add('card');
-
-            const cardTitle = document.createElement('h3');
-            cardTitle.textContent = GrupoEncontrado.nombre;
-
-            const cardContent = document.createElement('p');
-            cardContent.classList.add("cardContent");
-            cardContent.textContent = `Líder: ${GrupoEncontrado.liderGrupo}, Integrantes: ${GrupoEncontrado.integrantes.join(', ')}`;
-
-            cardDiv.appendChild(cardTitle);
-            cardDiv.appendChild(cardContent);
+            const cardDiv = mapearGrupoACard(GrupoEncontrado);
 
             cardContainer.appendChild(cardDiv);
         });
@@ -111,7 +148,7 @@ function buscarGrupo() {
 
 // Función para buscar lideres
 function buscarLider() {
-    const busquedaInput = document.getElementById('busqueda').value.trim().toLowerCase();
+    const busquedaInput = document.getElementById('busquedaL').value.trim().toLowerCase();
 
     // Filtrar los grupos que coinciden con la búsqueda
     const lideresFiltrados = grupos.filter(grupo => grupo.liderGrupo.toLowerCase().includes(busquedaInput));
@@ -121,18 +158,7 @@ function buscarLider() {
 
     if (lideresFiltrados.length > 0) {
         lideresFiltrados.forEach(LiderEncontrado => {
-            const cardDiv = document.createElement('div');
-            cardDiv.classList.add('card');
-
-            const cardTitle = document.createElement('h3');
-            cardTitle.textContent = LiderEncontrado.nombre;
-
-            const cardContent = document.createElement('p');
-            cardContent.classList.add("cardContent");
-            cardContent.textContent = `Líder: ${LiderEncontrado.liderGrupo}, Integrantes: ${LiderEncontrado.integrantes.join(', ')}`;
-
-            cardDiv.appendChild(cardTitle);
-            cardDiv.appendChild(cardContent);
+            const cardDiv = mapearGrupoACard(LiderEncontrado);
 
             cardContainer.appendChild(cardDiv);
         });
