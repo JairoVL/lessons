@@ -39,8 +39,6 @@
     <section id="hero">
         <div class="card-hero">
             <h3>Comunicación Redjar</h3>
-            <!-- <button id="gruposBtn">Encontrar tu grupo</button>
-            <button id="crearBtn">Crear Nuevo Grupo</button> -->
         </div>
     </section>
 
@@ -57,10 +55,8 @@
                             <h2></h2>
                             <form id="formulario">
                                 <div id="lideresContainer">
-                                    <label for="nombre">Nombre</label>
-                                    <input type="text" id="nombre" required placeholder="Ingresa tu nombre">
-                                    <label for="Lider">Líder asignado</label>
-                                    <input type="text" id="Lider" required placeholder="Nombre de líder asignado">
+                                    <label for="nombre">Grupo</label>
+                                    <input type="text" id="nombre" required placeholder="Ingresa nombre del grupo">
                                     <button type="button" id="buscarBtn">Mostrar Grupo</button>
                                 </div>
                             </form>
@@ -77,14 +73,14 @@
                         <div class="containerCrearGrupo">
                             <h2></h2>
                             <form id="groupForm">
-                                <label for="leader">Líder a Cargo:</label>
-                                <input type="text" id="leader" required placeholder="Ingresa nombre del Líder">
                                 <label for="grupo">Nombre del Grupo:</label>
                                 <input type="text" id="grupo" required placeholder="Ingresa nombre del Grupo">
+                                <label for="leader">Líder a Cargo:</label>
+                                <input type="text" id="leader" required placeholder="Ingresa nombre del Líder">
                                 <label for="member">Integrantes del Grupo:</label>
-                                <textarea required placeholder="Ingresa nuevos miembros" id="member" cols="30"
+                                <textarea required placeholder="Ingresa nuevos miembros separados por (,)" id="member" cols="30"
                                     rows="10"></textarea>
-                                <button type="button" id="agregarGrupo">Crear nuevo grupo</button><br>
+                                <button type="button" id="agregarGrupo">Crear nuevo grupo</button>
                             </form>
                             <div class="listaDeMiembros">
                                 <ul id="memberList"></ul>
@@ -98,13 +94,12 @@
             <div class="bloque">
                 <h6 class="h6">Agregar integrantes</h6>
                 <div class="contenido">
-                    <!-- Agregar integrantes -->
                     <section class="agregarIntegrantes">
-                        <h2>Agregar Integrante a un Grupo</h2>
+                        <h2></h2>
                         <label for="nombreGrupo">Nombre del Grupo:</label>
-                        <input type="text" id="nombreGrupo" placeholder="Nombre del Grupo">
+                        <input type="text" id="nombreGrupo" placeholder="Grupo que deseas agregar integrante">
                         <label for="nuevoIntegrante">Nuevo Integrante:</label>
-                        <input type="text" id="nuevoIntegrante" placeholder="Nombre del Integrante">
+                        <input type="text" id="nuevoIntegrante" placeholder="Nombre del Nuevo Integrante">
                         <button id="agregarIntegranteBtn">Agregar Integrante</button>
                     </section>
                 </div>
@@ -113,14 +108,12 @@
             <div class="bloque">
                 <h6 class="h6">Quitar Integrantes</h6>
                 <div class="contenido">
-                    <!--    quitar integrantes -->
                     <section class="QuitarIntegrantes">
-                        <!-- Agrega un formulario para eliminar integrantes de un grupo -->
-                        <h2>Eliminar Integrante de un Grupo</h2>
+                        <h2></h2>
                         <label for="nombreGrupoEliminar">Nombre del Grupo:</label>
-                        <input type="text" id="nombreGrupoEliminar" placeholder="Nombre del Grupo">
+                        <input type="text" id="nombreGrupoEliminar" placeholder="Nombre del Grupo del integrante a eliminar">
                         <label for="integranteAEliminar">Integrante a Eliminar:</label>
-                        <input type="text" id="integranteAEliminar" placeholder="Nombre del Integrante">
+                        <input type="text" id="integranteAEliminar" placeholder="Nombre del Integrante que deseas eliminar">
                         <button id="eliminarIntegranteBtn">Eliminar Integrante</button>
 
                         <!-- Container para mostrar los grupos o mensajes -->

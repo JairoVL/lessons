@@ -333,3 +333,51 @@
 //     numeroItem.textContent = numeros[i];
 //     numerosLista.appendChild(numeroItem);
 // }
+
+// recortes de web de grupos redjar
+
+// Eventos de redireccionamiento
+// const gruposBtn = document.getElementById("gruposBtn");
+// const crearBtn = document.getElementById("crearBtn");
+
+// gruposBtn.addEventListener("click", function () {
+//     window.location.href = "#formulario";
+// });
+
+// crearBtn.addEventListener("click", function () {
+//     window.location.href = "#cardContainer";
+// });
+
+
+// Función para mostrar un grupo al hacer clic en el botón
+// const mostrarBtn = document.getElementById('mostrarBtn');
+// mostrarBtn.addEventListener('click', mostrarPersona);
+
+// function mostrarPersona() {
+//     const LiderInput = document.getElementById('Lider').value;
+//     const GrupoEncontrado = grupos.find(grupo => grupo.liderGrupo === LiderInput);
+//     const cardContainer = document.getElementById('cardContainer');
+//     cardContainer.innerHTML = '';
+
+//     if (GrupoEncontrado) {
+//         const cardDiv = document.createElement('div');
+//         cardDiv.classList.add('card');
+
+//         const cardTitle = document.createElement('h3');
+//         cardTitle.textContent = GrupoEncontrado.nombre;
+
+//         const cardContent = document.createElement('p');
+//         cardContent.classList.add("cardContent");
+//         cardContent.textContent = `Líder: ${GrupoEncontrado.liderGrupo}, Integrantes: ${GrupoEncontrado.integrantes.join(', ')}`;
+
+//         cardDiv.appendChild(cardTitle);
+//         cardDiv.appendChild(cardContent);
+
+//         cardContainer.appendChild(cardDiv);
+//     } else {
+//         const alertDiv = document.createElement('div');
+//         alertDiv.classList.add('alert');
+//         alertDiv.textContent = 'No se encontró el grupo.';
+//         cardContainer.appendChild(alertDiv);
+//     }
+// }

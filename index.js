@@ -1,34 +1,42 @@
-// acordeon 
+const hamburger = document.querySelector('.header .nav-bar .nav-list .hamburger');
+const mobile_menu = document.querySelector('.header .nav-bar .nav-list ul');
+const menu_item = document.querySelectorAll('.header .nav-bar .nav-list ul li a');
+const header = document.querySelector('.header.container');
 
-'use strict'
+hamburger.addEventListener('click', () => {
+	hamburger.classList.toggle('active');
+	mobile_menu.classList.toggle('active');
+});
 
-const bloque = document.querySelectorAll('.bloque')
-const h6 = document.querySelectorAll('.h6')
 
+menu_item.forEach((item) => {
+	item.addEventListener('click', () => {
+		hamburger.classList.toggle('active');
+		mobile_menu.classList.toggle('active');
+	});
+});
 
-// Cuando CLICK en h2,
-// QUITAR la clase activo de TODOS los bloque
-// Vamos a añadir la clase activo al BLOQUE con la POSICION del h6
+// acordeon
+'use strict';
 
-// Recorrer TODOS los h2
+const bloque = document.querySelectorAll('.bloque');
+const h6 = document.querySelectorAll('.h6');
+
+function toggleActiveBlock(index) {
+    bloque.forEach((cadaBloque, i) => {
+        cadaBloque.classList.remove('activo');
+        if (i === index) {
+            cadaBloque.classList.add('activo');
+        }
+    });
+}
+
 h6.forEach((cadaH2, i) => {
-    // Asignando un CLICK a cada h2
-    h6[i].addEventListener('click', () => {
+    cadaH2.addEventListener('click', () => {
+        toggleActiveBlock(i);
+    });
+});
 
-        // Recorrer TODOS los bloque
-        bloque.forEach((cadaBloque, i) => {
-            // Quitamos la clase activo de TODOS los bloques
-            bloque[i].classList.remove('activo')
-        })
-        // Añadiendo la clase activo al bloque cuya posición sea igual al del h6
-
-        bloque[i].classList.add('activo')
-
-    })
-})
-
-
-// Definición de la lista de grupos
 const grupos = [
     {
         nombre: "berenjena soul power",
@@ -55,21 +63,8 @@ const grupos = [
             "Cian Vergara",
             "Agustin Belgrano",
             "Emanuel Reinoso",
-            "Melani Antuña ",
+            "Melani Antuña",
             "David Cicconi"
-        ],
-    },
-    {
-        nombre: "Equipo cuete",
-        liderGrupo: "Augusto De Liseo",
-        integrantes: [
-            "Manuel Leiva",
-            "Axel Vazquez",
-            "Kevin Ahumada",
-            "Mauro Pettinari",
-            "Franco Campo",
-            "Natalia Herrera",
-            "Mariela Herrera",
         ],
     },
     {
@@ -77,7 +72,6 @@ const grupos = [
         liderGrupo: "Franco Bertolotti",
         integrantes: [
             "Agustín Ganuza",
-            "Stefano Leone",
             "Flavia Arce",
             "Eric Farley",
             "Julián Viso",
@@ -98,14 +92,29 @@ const grupos = [
             "Federico Botti",
         ],
     },
+    {
+        nombre: "Equipo cuete",
+        liderGrupo: "Augusto De Liseo",
+        integrantes: [
+            "Manuel Leiva",
+            "Axel Vazquez",
+            "Kevin Ahumada",
+            "Mauro Pettinari",
+            "Franco Campo",
+            "Natalia Herrera",
+            "Mariela Herrera",
+        ],
+    },
+
 ];
 
-//  evento al botón de búsqueda para buscar grupos
+// Buscar Grupos
 const buscarBtn = document.getElementById('buscarBtn');
+const nombreInput = document.getElementById('nombre');
+
 buscarBtn.addEventListener('click', buscarGrupo);
 
 function mapearGrupoACard(grupo) {
-
     const cardDiv = document.createElement('div');
     cardDiv.classList.add('card');
 
@@ -122,26 +131,25 @@ function mapearGrupoACard(grupo) {
     return cardDiv;
 }
 
-// Función para buscar grupos
 function buscarGrupo() {
     const containerEncontrarGrupo = document.getElementById('containerEncontrarGrupo');
     const existingCardContainer = document.getElementById('cardContainer');
-    if (!!existingCardContainer) {
+
+    if (existingCardContainer) {
         containerEncontrarGrupo.removeChild(existingCardContainer);
     }
-    const nombreInput = document.getElementById('nombre').value.trim().toLowerCase();
 
-    // Filtrar los grupos que coinciden con la búsqueda
-    const gruposFiltrados = grupos.filter(grupo => grupo.nombre.toLowerCase().includes(nombreInput));
+    const nombreInputValue = nombreInput.value.trim().toLowerCase();
+
+    const gruposFiltrados = grupos.filter(grupo => grupo.nombre.toLowerCase().includes(nombreInputValue));
 
     const cardContainer = document.createElement("div");
     cardContainer.id = "cardContainer";
     cardContainer.innerHTML = '';
 
     if (gruposFiltrados.length > 0) {
-        gruposFiltrados.forEach(GrupoEncontrado => {
-            const cardDiv = mapearGrupoACard(GrupoEncontrado);
-
+        gruposFiltrados.forEach(grupoEncontrado => {
+            const cardDiv = mapearGrupoACard(grupoEncontrado);
             cardContainer.appendChild(cardDiv);
         });
     } else {
@@ -153,64 +161,8 @@ function buscarGrupo() {
     containerEncontrarGrupo.appendChild(cardContainer);
 }
 
-// Función para buscar lideres
-function buscarLider() {
-    const busquedaInput = document.getElementById('busquedaL').value.trim().toLowerCase();
+//crear nuevo grupo
 
-    // Filtrar los grupos que coinciden con la búsqueda
-    const lideresFiltrados = grupos.filter(grupo => grupo.liderGrupo.toLowerCase().includes(busquedaInput));
-
-    const cardContainer = document.getElementById('cardContainer');
-    cardContainer.innerHTML = '';
-
-    if (lideresFiltrados.length > 0) {
-        lideresFiltrados.forEach(LiderEncontrado => {
-            const cardDiv = mapearGrupoACard(LiderEncontrado);
-
-            cardContainer.appendChild(cardDiv);
-        });
-    } else {
-        const alertDiv = document.createElement('div');
-        alertDiv.classList.add('alert');
-        alertDiv.textContent = 'No se encontró un lider con ese nombre.';
-        cardContainer.appendChild(alertDiv);
-    }
-}
-
-// Función para mostrar un grupo al hacer clic en el botón
-// const mostrarBtn = document.getElementById('mostrarBtn');
-// mostrarBtn.addEventListener('click', mostrarPersona);
-
-// function mostrarPersona() {
-//     const LiderInput = document.getElementById('Lider').value;
-//     const GrupoEncontrado = grupos.find(grupo => grupo.liderGrupo === LiderInput);
-//     const cardContainer = document.getElementById('cardContainer');
-//     cardContainer.innerHTML = '';
-
-//     if (GrupoEncontrado) {
-//         const cardDiv = document.createElement('div');
-//         cardDiv.classList.add('card');
-
-//         const cardTitle = document.createElement('h3');
-//         cardTitle.textContent = GrupoEncontrado.nombre;
-
-//         const cardContent = document.createElement('p');
-//         cardContent.classList.add("cardContent");
-//         cardContent.textContent = `Líder: ${GrupoEncontrado.liderGrupo}, Integrantes: ${GrupoEncontrado.integrantes.join(', ')}`;
-
-//         cardDiv.appendChild(cardTitle);
-//         cardDiv.appendChild(cardContent);
-
-//         cardContainer.appendChild(cardDiv);
-//     } else {
-//         const alertDiv = document.createElement('div');
-//         alertDiv.classList.add('alert');
-//         alertDiv.textContent = 'No se encontró el grupo.';
-//         cardContainer.appendChild(alertDiv);
-//     }
-// }
-
-// Funciones para agregar y eliminar integrantes y grupos
 document.addEventListener("DOMContentLoaded", function () {
     const leaderInput = document.getElementById("leader");
     const grupoInput = document.getElementById("grupo");
@@ -259,9 +211,6 @@ document.addEventListener("DOMContentLoaded", function () {
         memberInput.value = "";
         // updateGrupoList();
     });
-
-
-
     function updateMemberList() {
         memberList.innerHTML = "";
         members.forEach(function (member) {
@@ -283,15 +232,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-// Eventos de redireccionamiento
-// const gruposBtn = document.getElementById("gruposBtn");
-// const crearBtn = document.getElementById("crearBtn");
 
-// gruposBtn.addEventListener("click", function () {
-//     window.location.href = "#formulario";
-// });
 
-// crearBtn.addEventListener("click", function () {
-//     window.location.href = "#cardContainer";
-// });
+
+
+
+
+
 
