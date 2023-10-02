@@ -95,12 +95,11 @@
                 <h6 class="h6">Agregar integrantes</h6>
                 <div class="contenido">
                     <section class="agregarIntegrantes">
-                        <h2></h2>
-                        <label for="nombreGrupo">Nombre del Grupo:</label>
-                        <input type="text" id="nombreGrupo" placeholder="Grupo que deseas agregar integrante">
-                        <label for="nuevoIntegrante">Nuevo Integrante:</label>
-                        <input type="text" id="nuevoIntegrante" placeholder="Nombre del Nuevo Integrante">
-                        <button id="agregarIntegranteBtn">Agregar Integrante</button>
+                        <div>
+                            <label for="nuevoIntegrante">Nuevo Integrante:</label>
+                            <input type="text" id="nuevoIntegrante" placeholder="Escribe un nuevo integrante">
+                            <button onclick="agregarIntegrante()">Agregar</button>
+                        </div>
                     </section>
                 </div>
             </div>
@@ -109,15 +108,11 @@
                 <h6 class="h6">Quitar Integrantes</h6>
                 <div class="contenido">
                     <section class="QuitarIntegrantes">
-                        <h2></h2>
-                        <label for="nombreGrupoEliminar">Nombre del Grupo:</label>
-                        <input type="text" id="nombreGrupoEliminar" placeholder="Nombre del Grupo del integrante a eliminar">
-                        <label for="integranteAEliminar">Integrante a Eliminar:</label>
-                        <input type="text" id="integranteAEliminar" placeholder="Nombre del Integrante que deseas eliminar">
-                        <button id="eliminarIntegranteBtn">Eliminar Integrante</button>
-
-                        <!-- Container para mostrar los grupos o mensajes -->
-                        <!-- <div id="cardContainer"></div> -->
+                        <div>
+                            <label for="integranteAQuitar">Integrante a Quitar:</label>
+                            <input type="text" id="integranteAQuitar" placeholder="Escribe un integrante a quitar">
+                            <button onclick="quitarIntegrante()">Quitar</button>
+                        </div>
                     </section>
                 </div>
             </div>

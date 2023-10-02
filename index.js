@@ -4,16 +4,16 @@ const menu_item = document.querySelectorAll('.header .nav-bar .nav-list ul li a'
 const header = document.querySelector('.header.container');
 
 hamburger.addEventListener('click', () => {
-	hamburger.classList.toggle('active');
-	mobile_menu.classList.toggle('active');
+    hamburger.classList.toggle('active');
+    mobile_menu.classList.toggle('active');
 });
 
 
 menu_item.forEach((item) => {
-	item.addEventListener('click', () => {
-		hamburger.classList.toggle('active');
-		mobile_menu.classList.toggle('active');
-	});
+    item.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        mobile_menu.classList.toggle('active');
+    });
 });
 
 // acordeon
@@ -230,8 +230,27 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
+function actualizarGrupoInfo() {
+    document.getElementById("grupoInfo").textContent = JSON.stringify(grupos[0], null, 2);
+}
 
+function agregarIntegrante() {
+    const nuevoIntegrante = document.getElementById("nuevoIntegrante").value;
+    grupos[0].integrantes.push(nuevoIntegrante);
+    actualizarGrupoInfo();
+}
 
+function quitarIntegrante() {
+    const integranteAQuitar = document.getElementById("integranteAQuitar").value;
+    const index = grupos[0].integrantes.indexOf(integranteAQuitar);
+    if (index !== -1) {
+        grupos[0].integrantes.splice(index, 1);
+    }
+    actualizarGrupoInfo();
+}
+
+// Mostrar información inicial del grupo...por hacer
+actualizarGrupoInfo();
 
 
 
