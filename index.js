@@ -239,14 +239,36 @@ function agregarIntegrante() {
     grupos[0].integrantes.push(nuevoIntegrante);
     actualizarGrupoInfo();
 }
-
+function agregarIntegrante() {
+    const nuevoIntegrante = document.getElementById("nuevoIntegrante").value;
+    const grupoSeleccionado = document.getElementById("grupoSeleccionado").value;
+  
+    // Verificar si el grupo seleccionado es válido
+    if (grupoSeleccionado >= 0 && grupoSeleccionado < grupos.length) {
+      grupos[grupoSeleccionado].integrantes.push(nuevoIntegrante);
+      actualizarGrupoInfo();
+    } else {
+      alert("Selecciona un grupo válido");
+    }
+  }
 function quitarIntegrante() {
     const integranteAQuitar = document.getElementById("integranteAQuitar").value;
     const index = grupos[0].integrantes.indexOf(integranteAQuitar);
     if (index !== -1) {
-        grupos[0].integrantes.splice(index, 1);
+        grupos.integrantes.splice(index, 1);
     }
     actualizarGrupoInfo();
+
+    const quitarIntegrante = document.getElementById("nuevoIntegrante").value;
+    const grupoSeleccionado = document.getElementById("grupoSeleccionado").value;
+  
+    // Verificar si el grupo seleccionado es válido
+    if (grupoSeleccionado >= 0 && grupoSeleccionado < grupos.length) {
+      grupos[grupoSeleccionado].integrantes.push(quitarIntegrante);
+      actualizarGrupoInfo();
+    } else {
+      alert("Selecciona un grupo válido");
+    }
 }
 
 // Mostrar información inicial del grupo...por hacer
