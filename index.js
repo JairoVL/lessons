@@ -230,49 +230,57 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
-function actualizarGrupoInfo() {
-    document.getElementById("grupoInfo").textContent = JSON.stringify(grupos[0], null, 2);
-}
+
 
 function agregarIntegrante() {
     const nuevoIntegrante = document.getElementById("nuevoIntegrante").value;
-    grupos[0].integrantes.push(nuevoIntegrante);
-    actualizarGrupoInfo();
-}
-function agregarIntegrante() {
-    const nuevoIntegrante = document.getElementById("nuevoIntegrante").value;
     const grupoSeleccionado = document.getElementById("grupoSeleccionado").value;
-  
-    // Verificar si el grupo seleccionado es válido
-    if (grupoSeleccionado >= 0 && grupoSeleccionado < grupos.length) {
-      grupos[grupoSeleccionado].integrantes.push(nuevoIntegrante);
-      actualizarGrupoInfo();
+    const grupoEncontrado = grupos.find(grupo => grupo.nombre.toLowerCase().includes(grupoSeleccionado.toLowerCase()));
+
+
+    if (!!grupoEncontrado) {
+        grupoEncontrado.integrantes.push(nuevoIntegrante);
+
     } else {
-      alert("Selecciona un grupo válido");
+        alert("No se encontro el grupo");
     }
-  }
+}
 function quitarIntegrante() {
-    const integranteAQuitar = document.getElementById("integranteAQuitar").value;
-    const index = grupos[0].integrantes.indexOf(integranteAQuitar);
-    if (index !== -1) {
-        grupos.integrantes.splice(index, 1);
-    }
-    actualizarGrupoInfo();
 
-    const quitarIntegrante = document.getElementById("nuevoIntegrante").value;
-    const grupoSeleccionado = document.getElementById("grupoSeleccionado").value;
-  
-    // Verificar si el grupo seleccionado es válido
-    if (grupoSeleccionado >= 0 && grupoSeleccionado < grupos.length) {
-      grupos[grupoSeleccionado].integrantes.push(quitarIntegrante);
-      actualizarGrupoInfo();
+    const integranteAQuitar = document.getElementById("integranteAQuitar").value;
+    const grupoSeleccionado = document.getElementById("grupoAQuitar").value;
+
+    const GrupoEliminado = grupos.find(grupo => grupo.nombre.toLowerCase().includes(grupoSeleccionado.toLowerCase()));
+
+    if (GrupoEliminado) {
+        const index = GrupoEliminado.integrantes.indexOf(integranteAQuitar);
+
+        if (index !== -1) {
+            GrupoEliminado.integrantes.splice(index, 1);
+
+        } else {
+            alert("El integrante especificado no se encuentra en el grupo.");
+        }
     } else {
-      alert("Selecciona un grupo válido");
+        alert("Selecciona un grupo válido.");
+    }
+
+}
+
+function eliminarGrupo() {
+    const grupoSeleccionado = document.getElementById("grupoAEliminar").value;
+
+    const GrupoEliminado = grupos.findIndex(grupo => grupo.nombre.toLowerCase().includes(grupoSeleccionado.toLowerCase()));
+
+    if (GrupoEliminado !== -1) {
+        grupos.splice(GrupoEliminado, 1);
+    } else {
+        alert("Selecciona un grupo válido.");
     }
 }
 
-// Mostrar información inicial del grupo...por hacer
-actualizarGrupoInfo();
+
+
 
 
 

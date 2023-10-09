@@ -53,8 +53,8 @@ p {
 
 .cardContent {
   display: flex;
-  background:transparent;
-  color:  #ca8011;
+  background: transparent;
+  color: #ca8011;
 }
 /* Header seccion */
 #header {
@@ -178,7 +178,7 @@ p {
   top: 8px;
 }
 #header .hamburger .bar::before {
-   bottom: 8px; 
+  bottom: 8px;
 }
 #header .hamburger.active .bar::before {
   bottom: 0;
@@ -189,7 +189,7 @@ p {
 /* Fin Header seccion */
 #hero {
   background-image: url(img/Captura.PNG);
-  background-attachment: fixed; 
+  background-attachment: fixed;
   background-size: cover;
   background-position: top center;
   position: relative;
@@ -211,10 +211,7 @@ p {
 #hero .hero {
   justify-content: flex-start;
 }
-#ca8011
-
-
-.buscador {
+#ca8011 .buscador {
   display: flex;
   flex-direction: row;
   height: 15rem;
@@ -225,7 +222,6 @@ p {
   flex-wrap: nowrap;
   justify-content: center;
 }
-
 
 @media only screen and (min-width: 1200px) {
   /* header */
@@ -266,10 +262,10 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 56rem;
+  padding-top: 50rem;
   width: 100%;
   gap: 3.5rem;
-  margin: 10px auto;
+  margin: 0px auto;
   border-radius: 5px;
   text-align: center;
   flex-direction: row;
@@ -299,8 +295,7 @@ p {
   padding: 10px;
   margin-top: 10px;
 }
-.contenido{
-  
+.contenido {
   width: 100%; /* Ancho de la tarjeta */
   height: 260px; /* Altura de la tarjeta */
   background-color: #ffffff; /* Color de fondo */
@@ -338,7 +333,6 @@ p {
   font-size: 16px; /* Tamaño de fuente del contenido */
   margin: 10px 0; /* Margen superior e inferior del contenido */
 }
-
 
 #agregarBtn {
   background-color: #28a745;
@@ -400,25 +394,24 @@ button:hover {
   justify-content: space-evenly;
   flex-wrap: nowrap;
   align-items: center;
-  }
-.buscador{
+}
+.buscador {
   display: flex;
-    /* height: 35rem; */
-    flex-flow: column wrap;
-    height: 53rem;
-    place-items: stretch center;
-    width: 100%;
-    place-content: center space-between;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
+  /* height: 35rem; */
+  flex-flow: column wrap;
+  height: 53rem;
+  place-items: stretch center;
+  width: 100%;
+  place-content: center space-between;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
 }
 
 .containerCrearGrupo {
   display: flex;
-  /* height: 35rem; */
   flex-flow: column wrap;
   height: 54rem;
   place-items: stretch center;
@@ -428,49 +421,52 @@ button:hover {
   flex-wrap: wrap;
   align-content: center;
   justify-content: center;
-  }
-  
-  .agregarIntegrantes{
-    display: flex;
-    /* height: 35rem; */
-    flex-flow: column wrap;
-    height: 20rem;
-    place-items: stretch center;
-    width: 100%;
-    place-content: center space-between;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-content: center;
-    justify-content: center;
-  }
-  
-  .QuitarIntegrantes{
-    display: flex;
-    /* height: 35rem; */
-    flex-flow: column wrap;
-    height: 20rem;
-    place-items: stretch center;
-    width: 100%;
-    place-content: center space-between;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-content: center;
-    justify-content: center;
-  }
-  
-  .acordeon {
-    
+}
+
+.agregarIntegrantes {
+  display: flex;
+  height: 20rem;
+  place-items: stretch center;
+  width: 28%;
+  flex-flow: column wrap;
+  place-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: flex-end;
+}
+
+.QuitarIntegrantes {
+  display: flex;
+  height: 20rem;
+  place-items: stretch center;
+  width: 28%;
+  flex-flow: column wrap;
+  place-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: flex-end;
+}
+
+.acordeon {
   width: 100%;
-    max-width: auto;
-    padding: 4rem;
-    color: white;
-    font-size: 23px;
-    -webkit-transition: all 0.4s ease;
-    transition: all 0.4s ease;
-    border-radius: 0;
-    background-color: #ca80117c;
-    -webkit-box-shadow: 0.4rem 0.4rem 0.8rem var(--sombra-ppal), -0.4rem -0.4rem 0.8rem var(--sombra-sec), inset 0 0 0 transparent, inset 0 0 0 transparent;
-    box-shadow: 0.4rem 0.4rem 0.8rem var(--sombra-ppal), -0.4rem -0.4rem 0.8rem var(--sombra-sec), inset 0 0 0 transparent, inset 0 0 0 transparent;
+  max-width: auto;
+  padding: 4rem;
+  color: white;
+  font-size: 23px;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+  border-radius: 0;
+  background-color: #ca80117c;
+  -webkit-box-shadow: 0.4rem 0.4rem 0.8rem var(--sombra-ppal),
+    -0.4rem -0.4rem 0.8rem var(--sombra-sec), inset 0 0 0 transparent,
+    inset 0 0 0 transparent;
+  box-shadow: 0.4rem 0.4rem 0.8rem var(--sombra-ppal),
+    -0.4rem -0.4rem 0.8rem var(--sombra-sec), inset 0 0 0 transparent,
+    inset 0 0 0 transparent;
 }
 
 .acordeon .bloque {
@@ -481,9 +477,13 @@ button:hover {
   -webkit-transition: all 0.4s ease;
   transition: all 0.4s ease;
   border-radius: 1rem;
-  background-color:#ca801175 ;
-  -webkit-box-shadow: 0.4rem 0.4rem 0.8rem var(--sombra-ppal), -0.4rem -0.4rem 0.8rem var(--sombra-sec), inset 0 0 0 transparent, inset 0 0 0 transparent;
-          box-shadow: 0.4rem 0.4rem 0.8rem var(--sombra-ppal), -0.4rem -0.4rem 0.8rem var(--sombra-sec), inset 0 0 0 transparent, inset 0 0 0 transparent;
+  background-color: #ca801175;
+  -webkit-box-shadow: 0.4rem 0.4rem 0.8rem var(--sombra-ppal),
+    -0.4rem -0.4rem 0.8rem var(--sombra-sec), inset 0 0 0 transparent,
+    inset 0 0 0 transparent;
+  box-shadow: 0.4rem 0.4rem 0.8rem var(--sombra-ppal),
+    -0.4rem -0.4rem 0.8rem var(--sombra-sec), inset 0 0 0 transparent,
+    inset 0 0 0 transparent;
 }
 
 .acordeon .h6 {
@@ -497,8 +497,12 @@ button:hover {
   transition: all 0.4s ease;
   border-radius: 1rem;
   background-color: #ca801175;
-  -webkit-box-shadow: 0.4rem 0.4rem 0.8rem var(--sombra-ppal), -0.4rem -0.4rem 0.8rem var(--sombra-sec), inset 0 0 0 transparent, inset 0 0 0 transparent;
-          box-shadow: 0.4rem 0.4rem 0.8rem var(--sombra-ppal), -0.4rem -0.4rem 0.8rem var(--sombra-sec), inset 0 0 0 transparent, inset 0 0 0 transparent;
+  -webkit-box-shadow: 0.4rem 0.4rem 0.8rem var(--sombra-ppal),
+    -0.4rem -0.4rem 0.8rem var(--sombra-sec), inset 0 0 0 transparent,
+    inset 0 0 0 transparent;
+  box-shadow: 0.4rem 0.4rem 0.8rem var(--sombra-ppal),
+    -0.4rem -0.4rem 0.8rem var(--sombra-sec), inset 0 0 0 transparent,
+    inset 0 0 0 transparent;
   cursor: pointer;
 }
 .acordeon .h6:hover {
@@ -507,8 +511,12 @@ button:hover {
   transition: all 0.4s ease;
   border-radius: 1rem;
   background-color: #5c3b0a8f;
-  -webkit-box-shadow: 0 0 0 transparent, 0 0 0 transparent, inset 0.4rem 0.4rem 0.8rem var(--sombra-ppal), inset -0.4rem -0.4rem 0.8rem var(--sombra-sec);
-          box-shadow: 0 0 0 transparent, 0 0 0 transparent, inset 0.4rem 0.4rem 0.8rem var(--sombra-ppal), inset -0.4rem -0.4rem 0.8rem var(--sombra-sec);
+  -webkit-box-shadow: 0 0 0 transparent, 0 0 0 transparent,
+    inset 0.4rem 0.4rem 0.8rem var(--sombra-ppal),
+    inset -0.4rem -0.4rem 0.8rem var(--sombra-sec);
+  box-shadow: 0 0 0 transparent, 0 0 0 transparent,
+    inset 0.4rem 0.4rem 0.8rem var(--sombra-ppal),
+    inset -0.4rem -0.4rem 0.8rem var(--sombra-sec);
 }
 
 .acordeon .contenido {
