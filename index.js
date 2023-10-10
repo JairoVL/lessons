@@ -3,10 +3,12 @@ const mobile_menu = document.querySelector('.header .nav-bar .nav-list ul');
 const menu_item = document.querySelectorAll('.header .nav-bar .nav-list ul li a');
 const header = document.querySelector('.header.container');
 
-hamburger.addEventListener('click', () => {
+
+hamburger.onclick = () => {
     hamburger.classList.toggle('active');
     mobile_menu.classList.toggle('active');
-});
+};
+;
 
 
 menu_item.forEach((item) => {
@@ -17,7 +19,6 @@ menu_item.forEach((item) => {
 });
 
 // acordeon
-'use strict';
 
 const bloque = document.querySelectorAll('.bloque');
 const h6 = document.querySelectorAll('.h6');
@@ -110,10 +111,13 @@ const grupos = [
 
 // Buscar Grupos
 const buscarBtn = document.getElementById('buscarBtn');
-const nombreInput = document.getElementById('nombre');
+const nombreGrupoInput = document.getElementById('nombreGrupoInput');
+const containerEncontrarGrupo = document.getElementById('containerEncontrarGrupo');
 
-buscarBtn.addEventListener('click', buscarGrupo);
 
+buscarBtn.onclick = buscarGrupo;
+
+// Función para mapear un grupo a un elemento de tarjeta
 function mapearGrupoACard(grupo) {
     const cardDiv = document.createElement('div');
     cardDiv.classList.add('card');
@@ -131,21 +135,14 @@ function mapearGrupoACard(grupo) {
     return cardDiv;
 }
 
+// Función para buscar grupos
 function buscarGrupo() {
-    const containerEncontrarGrupo = document.getElementById('containerEncontrarGrupo');
-    const existingCardContainer = document.getElementById('cardContainer');
-
-    if (existingCardContainer) {
-        containerEncontrarGrupo.removeChild(existingCardContainer);
-    }
-
-    const nombreInputValue = nombreInput.value.trim().toLowerCase();
-
-    const gruposFiltrados = grupos.filter(grupo => grupo.nombre.toLowerCase().includes(nombreInputValue));
-
+    const nombreInputValue = nombreGrupoInput.value.trim().toLowerCase();
     const cardContainer = document.createElement("div");
     cardContainer.id = "cardContainer";
     cardContainer.innerHTML = '';
+
+    const gruposFiltrados = grupos.filter(grupo => grupo.nombre.toLowerCase().includes(nombreInputValue));
 
     if (gruposFiltrados.length > 0) {
         gruposFiltrados.forEach(grupoEncontrado => {
@@ -158,77 +155,56 @@ function buscarGrupo() {
         alertDiv.textContent = 'No se encontraron grupos con ese nombre.';
         cardContainer.appendChild(alertDiv);
     }
+    containerEncontrarGrupo.innerHTML = '';
     containerEncontrarGrupo.appendChild(cardContainer);
 }
 
 //crear nuevo grupo
 
 document.addEventListener("DOMContentLoaded", function () {
-    const leaderInput = document.getElementById("leader");
-    const grupoInput = document.getElementById("grupo");
+    // Obtener referencias a elementos del DOM
+    const liderGrupoInput = document.getElementById("liderGrupoInput");
+    const nombreGrupoInput = document.getElementById("nombreGrupoInput");
     const memberInput = document.getElementById("member");
     const memberList = document.getElementById("memberList");
-    const grupoList = document.getElementById("grupoList");
-    const eliminarGrupoButton = document.getElementById("eliminarGrupo");
     const agregarGrupoButton = document.getElementById("agregarGrupo");
 
-
-
+    // Agregar un evento de clic al botón de agregar grupo
     agregarGrupoButton.addEventListener("click", function () {
         const grupoName = grupoInput.value.trim();
+        const liderName = liderGrupoInput.value.trim();
+        const memberNames = memberInput.value.trim().split("\n");
 
-        // ver clausula de guard (guardia)
+        // Verificar si se proporciona un nombre de grupo
         if (!grupoName) {
-            alert("tiene que cargar el nombre del grupo");
+            alert("Debes ingresar el nombre del grupo.");
             return;
         }
 
-        const LiderName = leaderInput.value.trim();
-        const memberName = memberInput.value.trim();
-
-
-        if (!memberName) {
-            alert("tenes que ingresar al menos un miembro");
+        // Verificar si se proporciona al menos un miembro
+        if (!memberNames || memberNames.length === 0) {
+            alert("Debes ingresar al menos un miembro.");
             return;
         }
 
-        if (!LiderName) {
-            alert("tenes que ingresar al lider designado");
-            return;
-        }
-
+        // Crear un nuevo grupo
         const nuevoGrupo = {
             nombre: grupoName,
-            liderGrupo: LiderName,
-            integrantes: memberName.split("\n")
-        }
+            liderGrupo: liderName,
+            integrantes: memberNames,
+        };
 
+        // Agregar el nuevo grupo a la lista de grupos
         grupos.push(nuevoGrupo);
 
-        // grupos.push(grupoName);
+        // Limpiar los campos de entrada
         grupoInput.value = "";
-        leaderInput.value = "";
+        liderGrupoInput.value = "";
         memberInput.value = "";
-        // updateGrupoList();
-    });
-    function updateMemberList() {
-        memberList.innerHTML = "";
-        members.forEach(function (member) {
-            const li = document.createElement("li");
-            li.textContent = member;
-            memberList.appendChild(li);
-        });
-    }
 
-    function updateGrupoList() {
-        grupoList.innerHTML = "";
-        grupos.forEach(function (grupo) {
-            const li = document.createElement("li");
-            li.textContent = grupo;
-            grupoList.appendChild(li);
-        });
-    }
+    });
 });
+
 
 
 
@@ -268,16 +244,20 @@ function quitarIntegrante() {
 }
 
 function eliminarGrupo() {
-    const grupoSeleccionado = document.getElementById("grupoAEliminar").value;
+    const NombreGrupoInput = document.getElementById("grupoAEliminar").value;
+    const GrupoIndex = grupos.findIndex(grupo => grupo.nombre.toLowerCase().includes(NombreGrupoInput.toLowerCase()));
 
-    const GrupoEliminado = grupos.findIndex(grupo => grupo.nombre.toLowerCase().includes(grupoSeleccionado.toLowerCase()));
-
-    if (GrupoEliminado !== -1) {
-        grupos.splice(GrupoEliminado, 1);
+    if (GrupoIndex !== -1) {
+        grupos.splice(GrupoIndex, 1);
     } else {
         alert("Selecciona un grupo válido.");
     }
 }
+
+// primer tarea es : cambiar los nombre de las constantes a algo mas descriptivo ej: (eliminar grupo)
+// segunda tarea es hacer lo mismo pero con los ID de todos los elementos
+// tercer tarea HTML y JS reemplazar los addeventlistener con on click para todos los botones
+// cuarta tarea: revisar que todo el codigo JS y identificar codigo repetido y extraer logica a su propia funcion 
 
 
 

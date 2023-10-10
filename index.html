@@ -55,8 +55,8 @@
                             <h2></h2>
                             <form id="formulario">
                                 <div id="lideresContainer">
-                                    <label for="nombre">Grupo</label>
-                                    <input type="text" id="nombre" required placeholder="Ingresa nombre del grupo">
+                                    <label for="nombreGrupoInput">Grupo</label>
+                                    <input type="text" id="nombreGrupoInput" required placeholder="Ingresa nombre del grupo">
                                     <button type="button" id="buscarBtn">Mostrar Grupo</button>
                                 </div>
                             </form>
@@ -73,10 +73,10 @@
                         <div class="containerCrearGrupo">
                             <h2></h2>
                             <form id="groupForm">
-                                <label for="grupo">Nombre del Grupo:</label>
-                                <input type="text" id="grupo" required placeholder="Ingresa nombre del Grupo">
-                                <label for="leader">Líder a Cargo:</label>
-                                <input type="text" id="leader" required placeholder="Ingresa nombre del Líder">
+                                <label for="nombreGrupoInput">Nombre del Grupo:</label>
+                                <input type="text" id="nombreGrupoInput" required placeholder="Escribe el nombre del grupo">
+                                <label for="liderGrupoInput">Líder a Cargo:</label>
+                                <input type="text" id="liderGrupoInput" required placeholder="Ingresa nombre del Líder">
                                 <label for="member">Integrantes del Grupo:</label>
                                 <textarea required placeholder="Ingresa nuevos miembros separados por (,)" id="member" cols="30"
                                     rows="10"></textarea>
@@ -124,11 +124,11 @@
             <div class="bloque">
                 <h6 class="h6">Eliminar Grupo</h6>
                 <div class="contenido">
-                    <section class="quitarIntegrantes">
+                    <section class="EliminarGrupo">
                         <div>
                             
-                            <label for="grupoAEliminar">grupo a eliminar:</label>
-                            <input type="text" id="grupoAEliminar" placeholder="escribe el grupo que deseas eliminar">
+                            <label for="EliminarGrupo_NombreGrupoInput">grupo a eliminar:</label>
+                            <input type="text" id="EliminarGrupo_NombreGrupoInput" placeholder="escribe el grupo que deseas eliminar">
                             <button onclick="eliminarGrupo()">Eliminar Grupo</button>
                         </div>
                     </section>
